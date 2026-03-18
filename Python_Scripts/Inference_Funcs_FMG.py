@@ -9,6 +9,7 @@ import logging
 import sys
 import time
 from datetime import timedelta
+from mpl_toolkits.axes_grid1.inset_locator import mark_inset, zoomed_inset_axes
 
 # Configure logging
 logging.basicConfig(
@@ -21,6 +22,7 @@ logger = logging.getLogger("pymc_sampling")
 
 # Custom callback to log progress
 class SimpleLoggingCallback:
+    """A simple callback to log the progress of PyMC sampling with timing metrics."""
     def __init__(self, total_draws, log_interval=50_000):
         self.total_draws = total_draws
         self.log_interval = log_interval
@@ -76,16 +78,14 @@ def load_data(file_path, sheet_name, rows, cols_opt, cols_GnP, omega_limits, rcP
         rows (dict): Dictionary containing start and end rows for loading data.
         cols_opt (list): List of column indices for optimized parameters.
         cols_GnP (dict): Dictionary mapping GnP keys to their respective column indices.
-        GnPs (list): List of GnP keys.
         omega_limits (dict): Dictionary containing omega limits for filtering data.
         rcParams_plot (dict): Dictionary containing plot parameters.
     
     Returns:
-        tuple: A tuple containing:
-            - v_obs_Ep (dict): Dictionary of observed storage modulus values.
-            - v_obs_Epp (dict): Dictionary of observed loss modulus values.
-            - x_data (dict): Dictionary of frequency data.
-            - optimized_params_df (pd.DataFrame): DataFrame of optimized model parameters.
+        v_obs_Ep (dict): Dictionary of observed storage modulus values.
+        v_obs_Epp (dict): Dictionary of observed loss modulus values.
+        x_data (dict): Dictionary of frequency data.
+        optimized_params_df (pd.DataFrame): DataFrame of optimized model parameters.
     """
     # Load experimental data
     data_dict = {
@@ -160,7 +160,8 @@ def modulus_func(x, model_params, model):
         model (str): The model type ('storage' or 'loss').
 
     Returns:
-        Ep or Epp (float): The calculated modulus value.
+        Ep (float): The storage modulus if model is 'storage'.
+        Epp (float): The loss modulus if model is 'loss'.
     """
     E_c1, alpha_1 = model_params['E_c1'], model_params['alpha_1']
     E_c2, alpha_2 = model_params['E_c2'], model_params['alpha_2']
@@ -324,7 +325,7 @@ def calculate_diagnostic_metrics(idata, param_list):
         param_list (list): List of parameter names for which to calculate diagnostics.
 
     Returns:
-        dict: Dictionary containing the calculated diagnostic metrics.
+        calculated_diagnostic_metrics (dict): Dictionary containing the calculated diagnostic metrics.
     """
     # Calculate rhat
     rhat = az.rhat(idata, var_names=param_list, method="rank")    
@@ -353,7 +354,7 @@ def calculate_diagnostic_metrics(idata, param_list):
         for name, mcse in mcse.data_vars.items()
     }
 
-    returned_diagnostic_metrics = {
+    calculated_diagnostic_metrics = {
         'rhat_dict': rhat_dict,
         'ess_bulk_dict': ess_bulk_dict,
         'ess_quantile_05_dict': ess_quantile_05_dict,
@@ -361,7 +362,7 @@ def calculate_diagnostic_metrics(idata, param_list):
         'mcse_dict': mcse_dict
     }
     
-    return returned_diagnostic_metrics
+    return calculated_diagnostic_metrics
 
 # Error metrics function
 def error_func(Ep_exp, Epp_exp, Ep_opt, Epp_opt, Ep_MCMC_mean, Epp_MCMC_mean, Ep_MCMC_map, Epp_MCMC_map):
@@ -378,7 +379,7 @@ def error_func(Ep_exp, Epp_exp, Ep_opt, Epp_opt, Ep_MCMC_mean, Epp_MCMC_mean, Ep
         Epp_MCMC_map (np.ndarray): MCMC map model data for Epp.
 
     Returns:
-        dict: Dictionary containing the calculated error metrics.
+        error_measures (dict): Dictionary containing the calculated error metrics.
     """
     log_mse_Ep_opt = np.mean((np.log(Ep_exp / Ep_opt))**2)
     log_mse_Epp_opt = np.mean((np.log(Epp_exp / Epp_opt))**2)
@@ -477,70 +478,7 @@ def save_inference_results(to_be_saved, file_path, HS):
 # --------------------------------------------------
 # Plot functions
 # --------------------------------------------------
-# Plot posterior predictive
-def plot_posterior_distributions(idata, map_estimate, idata_mean, idata_std, model_params_opt, param_list, actual_param_name, plt_set, rcParams_plot):
-    """Plot the posterior distributions of model parameters and compare with experimental data.
-
-    Args:
-        idata (arviz.InferenceData): Inference data from the sampling.
-        map_estimate (dict): Dictionary containing the maximum a posteriori estimates.
-        idata_mean (dict): Dictionary containing the mean values of the posterior distributions.
-        idata_std (dict): Dictionary containing the standard deviation values of the posterior distributions.
-        model_params_opt (dict): Dictionary containing the optimized parameter values.
-        param_list (list): List of parameter names to plot.
-        actual_param_name (list): List of actual parameter names for labeling.
-        plt_set (dict): Dictionary containing the plot settings.
-        rcParams_plot (dict): Dictionary containing the plot parameters.
-    """
-    plt.rcParams.update({
-        'font.size': rcParams_plot['font.size'],
-        'axes.labelsize': rcParams_plot['label.fontsize'],
-        'xtick.labelsize': rcParams_plot['tick.fontsize'],
-        'ytick.labelsize': rcParams_plot['tick.fontsize'],
-        'legend.fontsize': rcParams_plot['legend.fontsize'],
-        'axes.titlesize': rcParams_plot['title.fontsize'],
-        'font.family': rcParams_plot['font.family'],
-        'mathtext.fontset': rcParams_plot['mathtext.fontset'],
-        'mathtext.rm': rcParams_plot['mathtext.rm'],
-        'mathtext.it': rcParams_plot['mathtext.it'],
-        'mathtext.bf': rcParams_plot['mathtext.bf'],
-    })
-    _, axes = plt.subplots(int(np.ceil(len(param_list)/2)), 2, figsize=(16, 3 * len(param_list)))
-    axes = axes.flatten()
-    
-    for i, param in enumerate(param_list):
-        ax = axes[i]
-        az.plot_kde(
-            idata.posterior[param].values.flatten(),
-            plot_kwargs={'color': 'C0', 'linewidth': 3}, ax=ax
-        )
-        if param in model_params_opt:
-            ax.axvline(
-                model_params_opt[param], color='C1',
-                linestyle='--', label='Optimized Value'
-            )
-            ax.axvline(
-                idata_mean[param] + 3 * idata_std[param], color='C3',
-                 linestyle='-', label='Mean +/- 3 Std Dev'
-            )
-            ax.axvline(
-                idata_mean[param] - 3 * idata_std[param],
-                color='C3', linestyle='-'
-            )
-        ax.axvline(
-            map_estimate[param], color='C2',
-            linestyle='--', label='MAP Estimate'
-        )
-        ax.set_xlabel(actual_param_name[i])
-        ax.set_ylabel('Density')
-        ax.tick_params()
-
-    axes[0].legend(loc='upper left')
-    plt.suptitle(plt_set['suptitle'], fontsize=rcParams_plot['title_fontsize'])
-    plt.tight_layout(rect=[0, 0.03, 1, 0.99])
-    plt.savefig(plt_set['savefig_path'], dpi=300, bbox_inches='tight')
-
-# Posterior distribution plots
+# Plot posterior distributions
 def plot_posterior_distributions(idata, idata_mean, param_list, actual_param_name, plt_set, rcParams_plot):
     """Plot the posterior distributions of model parameters and compare with experimental data.
 
@@ -670,8 +608,174 @@ def plot_diagnostic(idata, var_names, xticks, xticklabels, plt_set, rcParams_plo
     plt.savefig(plt_set['savefig_path_trace'], dpi=300, bbox_inches='tight')
     plt.show()
 
-# Plot posterior predictive
-def plot_posterior_predictive(idata, range1, range2, rcParams_plot):
+# Plot posterior predictive with HDI
+def plot_posterior_predictive(idata_dict, v_obs_Ep, v_obs_Epp, x_data, GnPs, GnP_idx, xylims, plt_set, rcParams_plot):
+    """Plot the storage and loss mooduli predictions with uncertainty intervals (HDI) from the posterior predictive distribution, and compare with the observed data.
+
+    Args:
+        idata_dict (arviz.InferenceData): Inference data from the sampling.
+        v_obs_Ep (np.ndarray): Observed storage modulus data.
+        v_obs_Epp (np.ndarray): Observed loss modulus data.
+        x_data (np.ndarray): Frequency data.
+        GnPs (list): List of GnP values.
+        GnP_idx (int): Index of the current GnP value.
+        xylims (dict): Limits for the x and y axes of the insets.
+        plt_set (dict): Description of the plot settings.
+        rcParams_plot (dict): Description of the plot parameters.
+    """
+    plt.rcParams.update({
+        'font.size': rcParams_plot['font.size'],
+        'axes.labelsize': rcParams_plot['axes.labelsize'],
+        'xtick.labelsize': rcParams_plot['xtick.labelsize'],
+        'ytick.labelsize': rcParams_plot['ytick.labelsize'],
+        'legend.fontsize': rcParams_plot['legend.fontsize'],
+        'axes.titlesize': rcParams_plot['axes.titlesize'],
+        'font.family': rcParams_plot['font.family'],
+        'mathtext.fontset': rcParams_plot['mathtext.fontset'],
+        'mathtext.rm': rcParams_plot['mathtext.rm'],
+        'mathtext.it': rcParams_plot['mathtext.it'],
+        'mathtext.bf': rcParams_plot['mathtext.bf']
+    })
+    fig, axes = plt.subplots(1, 2, figsize=(16, 5), constrained_layout=True)
+    axes = axes.flatten()
+
+    Ep_pred = idata_dict[GnPs[GnP_idx]].posterior["Ep_pred"]
+    Ep_pred_mean = Ep_pred.mean(dim=["draw", "chain"])
+    Epp_pred = idata_dict[GnPs[GnP_idx]].posterior["Epp_pred"]
+    Epp_pred_mean = Epp_pred.mean(dim=["draw", "chain"])
+
+    # Plot for Ep_pred
+    axes[0].scatter(x_data[GnPs[GnP_idx]], v_obs_Ep[GnPs[GnP_idx]], label='Observed', marker='o', s=64, color='C3')
+    axes[0].plot(x_data[GnPs[GnP_idx]], Ep_pred_mean, label='Mean Predicted', linestyle='-', color='C0', linewidth=1.1)
+    az.plot_hdi(
+        x_data[GnPs[GnP_idx]],
+        Ep_pred,
+        hdi_prob=0.95,
+        smooth=False,
+        plot_kwargs={'color': 'C0', 'alpha': 0.3},
+        fill_kwargs={'color': 'C0', 'alpha': 0.3, 'label': r'95% HDI'},
+        ax=axes[0]
+    )
+    axes[0].set_xscale("log")
+    axes[0].set_yscale("log")
+    axes[0].set_xlabel(r"$\omega a_T \ (rad/s)$")
+    axes[0].set_ylabel(r"$E^{\prime}$ (MPa)")
+    axes[0].set_xlim([0.5*1e-8, 1.5*1e2])
+    axes[0].set_xticks([1e-8, 1e-6, 1e-4, 1e-2, 1e0, 1e2])
+    axes[0].set_ylim([1.1e1, 4e3])
+    axes[0].text(
+        0.012, 0.92, r'$(a)$',
+        transform=axes[0].transAxes,
+    )
+    axes[0].legend(fontsize=16, loc='lower right')
+
+    # First inset for Ep_pred
+    axins1 = zoomed_inset_axes(axes[0], zoom=1.5, loc='center left')
+    axins1.loglog(x_data[GnPs[GnP_idx]], Ep_pred_mean, color='C0')
+    axins1.scatter(x_data[GnPs[GnP_idx]], v_obs_Ep[GnPs[GnP_idx]], color='C3', s=64)
+    az.plot_hdi(
+        x_data[GnPs[GnP_idx]],
+        Ep_pred,
+        hdi_prob=0.95,
+        smooth=False,
+        plot_kwargs={'color': 'C0', 'alpha': 0.3},
+        fill_kwargs={'color': 'C0', 'alpha': 0.3},
+        ax=axins1
+    )
+    
+    axins1.set_xlim(xylims['Ep_inset1']['xlim'])
+    axins1.set_ylim(xylims['Ep_inset1']['ylim'])
+    axins1.xaxis.set_visible(False)
+    axins1.yaxis.set_visible(False)
+    mark_inset(axes[0], axins1, loc1=2, loc2=4, fc="none", ec="0.5")
+
+    # Second inset for Ep_pred
+    axins2 = zoomed_inset_axes(axes[0], zoom=1.5, loc='upper center')
+    axins2.loglog(x_data[GnPs[GnP_idx]], Ep_pred_mean, color='C0')
+    axins2.scatter(x_data[GnPs[GnP_idx]], v_obs_Ep[GnPs[GnP_idx]], color='C3', s=64)
+    az.plot_hdi(
+        x_data[GnPs[GnP_idx]],
+        Ep_pred,
+        hdi_prob=0.95,
+        smooth=False,
+        plot_kwargs={'color': 'C0', 'alpha': 0.3},
+        fill_kwargs={'color': 'C0', 'alpha': 0.3},
+        ax=axins2
+    )
+    axins2.set_xlim(xylims['Ep_inset2']['xlim'])
+    axins2.set_ylim(xylims['Ep_inset2']['ylim'])
+    axins2.xaxis.set_visible(False)
+    axins2.yaxis.set_visible(False)
+    mark_inset(axes[0], axins2, loc1=2, loc2=4, fc="none", ec="0.5")
+
+    # Epp
+    axes[1].scatter(x_data[GnPs[GnP_idx]], v_obs_Epp[GnPs[GnP_idx]], label='Observed', marker='o', s=64, color='C3')
+    axes[1].plot(x_data[GnPs[GnP_idx]], Epp_pred_mean, label='Mean Predicted', linestyle='-', color='C0', linewidth=1.1)
+    az.plot_hdi(
+        x_data[GnPs[GnP_idx]],
+        Epp_pred,
+        hdi_prob=0.95,
+        smooth=False,
+        plot_kwargs={'color': 'C0', 'alpha': 0.3},
+        fill_kwargs={'color': 'C0', 'alpha': 0.3},
+        ax=axes[1]
+    )
+    axes[1].set_xscale("log")
+    axes[1].set_yscale("log")
+    axes[1].set_xlabel(r"$\omega a_T \ (rad/s)$")
+    axes[1].set_ylabel(r"$E^{\prime\prime}$ (MPa)")
+    axes[1].set_xlim([0.5*1e-8, 1.5*1e2])
+    axes[1].set_xticks([1e-8, 1e-6, 1e-4, 1e-2, 1e0, 1e2])
+    axes[1].set_ylim([1.1e0, 1.1e3])
+    axes[1].text(
+        0.012, 0.92, r'$(b)$',
+        transform=axes[1].transAxes,
+    )
+
+    # First inset for Epp_pred
+    axins3 = zoomed_inset_axes(axes[1], zoom=1.5, loc='center right')
+    axins3.loglog(x_data[GnPs[GnP_idx]], Epp_pred_mean, color='C0')
+    axins3.scatter(x_data[GnPs[GnP_idx]], v_obs_Epp[GnPs[GnP_idx]], color='C3', s=64)
+    az.plot_hdi(
+        x_data[GnPs[GnP_idx]],
+        Epp_pred,
+        hdi_prob=0.95,
+        smooth=False,
+        plot_kwargs={'color': 'C0', 'alpha': 0.3},
+        fill_kwargs={'color': 'C0', 'alpha': 0.3},
+        ax=axins3
+    )
+    axins3.set_xlim(xylims['Epp_inset3']['xlim'])
+    axins3.set_ylim(xylims['Epp_inset3']['ylim'])
+    axins3.xaxis.set_visible(False)
+    axins3.yaxis.set_visible(False)
+    mark_inset(axes[1], axins3, loc1=2, loc2=4, fc="none", ec="0.5")
+
+    # Second inset for Epp_pred
+    axins4 = zoomed_inset_axes(axes[1], zoom=1.25, loc='center left')
+
+    axins4.loglog(x_data[GnPs[GnP_idx]], Epp_pred_mean, color='C0')
+    axins4.scatter(x_data[GnPs[GnP_idx]], v_obs_Epp[GnPs[GnP_idx]], color='C3', s=64)
+    az.plot_hdi(
+        x_data[GnPs[GnP_idx]],
+        Epp_pred,
+        hdi_prob=0.95,
+        smooth=False,
+        plot_kwargs={'color': 'C0', 'alpha': 0.3},
+        fill_kwargs={'color': 'C0', 'alpha': 0.3},
+        ax=axins4
+    )
+    axins4.set_xlim(xylims['Epp_inset4']['xlim'])
+    axins4.set_ylim(xylims['Epp_inset4']['ylim'])
+    axins4.xaxis.set_visible(False)
+    axins4.yaxis.set_visible(False)
+    mark_inset(axes[1], axins4, loc1=2, loc2=4, fc="none", ec="0.5")
+
+    plt.savefig(plt_set['savefig_path'], dpi=300, bbox_inches='tight')
+    plt.show()
+
+# Plot posterior predictive checks
+def plot_posterior_predictive_checks(idata, range1, range2, plt_set, rcParams_plot):
     """Plot the posterior predictive checks for the model with the inferred model parameters.
 
     Args:
@@ -708,8 +812,11 @@ def plot_posterior_predictive(idata, range1, range2, rcParams_plot):
     ax[0].legend().remove()
     ax[1].legend(loc='upper left')
 
+    plt.savefig(plt_set['savefig_path'], dpi=300, bbox_inches='tight')
+    plt.show()
+
 # Pairplots
-def plot_pairplot(idata, var_names, subset_data_number, rcParams_plot):
+def plot_pairplot(idata, var_names, subset_data_number, plt_set, rcParams_plot):
     """Plot the pairplot of the sampled parameters to visualize their joint distributions and correlations.
 
     Args:
@@ -760,5 +867,5 @@ def plot_pairplot(idata, var_names, subset_data_number, rcParams_plot):
     g.axes[3, 1].set_xlabel(r"$\alpha_1$")
     g.axes[3, 2].set_xlabel(r"$\alpha_2$")
     g.axes[3, 3].set_xlabel(r"$E_{c_2}$")
-
+    plt.savefig(plt_set['savefig_path'], dpi=300, bbox_inches='tight')
     plt.show()

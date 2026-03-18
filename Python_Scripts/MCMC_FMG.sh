@@ -16,14 +16,13 @@ ml load Miniforge3
 ml load powertools
 conda activate UQ_Project
 
-# Run the Python script
-python MCMC_FMG_Inference.py \
-  --HS 20
-
-# python MCMC_FMG_Inference_PostProcessing.py \
-#   --HS 20
-
+# Print job information
 echo "Job started at $(date)"
 echo "Running on host $(hostname)"
-srun python MCMC_FMG_20HSWF.py
+
+# Run the Python script
+python MCMC_FMG_Inference.py --HS 20
+
+# python MCMC_FMG_Inference_PostProcessing.py --HS 40
+
 echo "Job finished at $(date)"
