@@ -10,6 +10,7 @@ This section contains the auto-generated documentation from the Python source co
       show_source: true
       heading_level: 2
       members:
+        - SimpleLoggingCallback
         - load_data
         - modulus_func
         - define_bounds

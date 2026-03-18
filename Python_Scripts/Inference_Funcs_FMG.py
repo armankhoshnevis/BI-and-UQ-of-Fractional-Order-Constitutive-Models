@@ -22,6 +22,7 @@ logger = logging.getLogger("pymc_sampling")
 
 # Custom callback to log progress
 class SimpleLoggingCallback:
+    """A simple callback to log the progress of PyMC sampling with timing metrics."""
     def __init__(self, total_draws, log_interval=50_000):
         self.total_draws = total_draws
         self.log_interval = log_interval
