@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-the-documentation" class="md-skip">
+        <a href="#bayesian-calibration-and-uncertainty-quantification-for-fractional-order-constitutive-models" class="md-skip">
           Skip to content
         </a>
       
@@ -294,6 +294,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="." class="md-nav__link md-nav__link--active">
         
   
@@ -310,6 +328,75 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repository-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repository Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Started
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -370,25 +457,25 @@
   
 
 
-<h1 id="welcome-to-the-documentation">Welcome to the Documentation</h1>
-<p>Here is the documentation:</p>
-<!-- # Welcome to MkDocs
-
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files. -->
+<h1 id="bayesian-calibration-and-uncertainty-quantification-for-fractional-order-constitutive-models">Bayesian Calibration and Uncertainty Quantification for Fractional-Order Constitutive Models</h1>
+<p>Welcome to the documentation for the <strong>BI and UQ of Fractional-Order Constitutive Models</strong> framework. This repository provides computational tools to apply machine learning and Bayesian inference techniques to complex mechanical models.</p>
+<h2 id="overview">Overview</h2>
+<p>Fractional-order constitutive models are powerful tools for capturing the memory-dependent and anomalous behavior of materials. However, identifying their parameters requires robust probabilistic frameworks. This project utilizes Bayesian calibration to not only estimate these parameters but also quantify the underlying uncertainties in the data and the model itself.</p>
+<h2 id="repository-structure">Repository Structure</h2>
+<ul>
+<li><strong><code>Configs/</code></strong>: Configuration files for setting up MCMC chains, priors, and model hyperparameters.</li>
+<li><strong><code>Data/</code></strong>: Experimental or synthetic datasets used for the calibration process.</li>
+<li><strong><code>Jupyter_Notebooks/</code></strong>: Step-by-step interactive workflows demonstrating data ingestion, deep learning/surrogate modeling (if applicable), and posterior analysis.</li>
+<li><strong><code>Python_Scripts/</code></strong>: Core modules containing the mathematical formulations, fractional calculus operators, and the Bayesian inference engine.</li>
+<li><strong><code>Results/</code></strong>: Output directories for trace plots, posterior distributions, and predictive checks.</li>
+</ul>
+<h2 id="getting-started">Getting Started</h2>
+<h3 id="installation">Installation</h3>
+<p>Clone the repository and install the required dependencies:</p>
+<p>```bash
+git clone <a href="https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models.git">https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models.git</a>
+cd BI-and-UQ-of-Fractional-Order-Constitutive-Models
+pip install -r requirements.txt</p>
 
 
 
