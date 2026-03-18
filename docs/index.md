@@ -7,17 +7,16 @@ Fractional-order constitutive models are powerful tools for capturing the memory
 
 ## Repository Structure
 * **`Configs/`**: Configuration files for setting up MCMC chains, priors, and model hyperparameters.
-* **`Data/`**: Experimental or synthetic datasets used for the calibration process.
-* **`Jupyter_Notebooks/`**: Step-by-step interactive workflows demonstrating data ingestion, deep learning/surrogate modeling (if applicable), and posterior analysis.
-* **`Python_Scripts/`**: Core modules containing the mathematical formulations, fractional calculus operators, and the Bayesian inference engine.
-* **`Results/`**: Output directories for trace plots, posterior distributions, and predictive checks.
+* **`Data/`**: Synthetic experimental dataset and optimized model parameters used for the calibration process.
+* **`Jupyter_Notebooks/`**: Jupyter notebook equivalents of the python codes for interactive use.
+* **`Python_Scripts/`**: Main inference script, helper functions, and post-processing scripts.
+* **`Results/`**: Output directories for trace plots, posterior distributions, predictive checks, etc.
 
-## Getting Started
-
-### Installation
+## Installation
 Clone the repository and install the required dependencies:
 
 ```bash
-git clone [https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models.git](https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models.git)
+git clone git@github.com:armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models.git
 cd BI-and-UQ-of-Fractional-Order-Constitutive-Models
 pip install -r requirements.txt
+```
