@@ -1,7 +1,24 @@
 site_name: BI and UQ of Fractional-Order Constitutive Models
+site_description: Bayesian Calibration and Uncertainty Quantification for Fractional-Order Constitutive Models
+site_author: Arman Khoshnevis
+
+repo_url: https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models
+repo_name: armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models
 
 theme:
   name: material
+  palette:
+    scheme: 
+    primary: blue
+    accent: light blue
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - toc.integrate
 
 plugins:
   - search
@@ -10,3 +27,7 @@ plugins:
       handlers:
         python:
           paths: [.]
+
+nav:
+  - Home: index.md
+  - API Reference: api.md
