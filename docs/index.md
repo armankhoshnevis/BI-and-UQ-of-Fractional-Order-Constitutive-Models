@@ -1,21 +1,23 @@
-# Welcome to the Documentation
+# Bayesian Calibration and Uncertainty Quantification for Fractional-Order Constitutive Models
 
-Here is the documentation:
+Welcome to the documentation for the **BI and UQ of Fractional-Order Constitutive Models** framework. This repository provides computational tools to apply machine learning and Bayesian inference techniques to complex mechanical models.
 
-<!-- # Welcome to MkDocs
+## Overview
+Fractional-order constitutive models are powerful tools for capturing the memory-dependent and anomalous behavior of materials. However, identifying their parameters requires robust probabilistic frameworks. This project utilizes Bayesian calibration to not only estimate these parameters but also quantify the underlying uncertainties in the data and the model itself.
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## Repository Structure
+* **`Configs/`**: Configuration files for setting up MCMC chains, priors, and model hyperparameters.
+* **`Data/`**: Experimental or synthetic datasets used for the calibration process.
+* **`Jupyter_Notebooks/`**: Step-by-step interactive workflows demonstrating data ingestion, deep learning/surrogate modeling (if applicable), and posterior analysis.
+* **`Python_Scripts/`**: Core modules containing the mathematical formulations, fractional calculus operators, and the Bayesian inference engine.
+* **`Results/`**: Output directories for trace plots, posterior distributions, and predictive checks.
 
-## Commands
+## Getting Started
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+### Installation
+Clone the repository and install the required dependencies:
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files. -->
+```bash
+git clone [https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models.git](https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models.git)
+cd BI-and-UQ-of-Fractional-Order-Constitutive-Models
+pip install -r requirements.txt
