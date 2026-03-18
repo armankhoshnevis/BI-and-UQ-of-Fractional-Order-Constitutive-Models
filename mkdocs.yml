@@ -1,0 +1,9 @@
+site_name: BI and UQ of Fractional-Order Constitutive Models
+
+theme:
+  name: material
+
+  plugins:
+    - search
+    - mkdocstrings:
+      default_handler: python
