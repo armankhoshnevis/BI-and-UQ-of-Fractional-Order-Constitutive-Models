@@ -670,7 +670,7 @@ def plot_posterior_predictive(idata_dict, v_obs_Ep, v_obs_Epp, x_data, GnPs, GnP
     axes[0].legend(fontsize=16, loc='lower right')
 
     # First inset for Ep_pred
-    axins1 = zoomed_inset_axes(axes[0], zoom=1.5, loc='center left')
+    axins1 = zoomed_inset_axes(axes[0], zoom=1.5, loc=xylims['Ep_inset1']['loc'])
     axins1.loglog(x_data[GnPs[GnP_idx]], Ep_pred_mean, color='C0')
     axins1.scatter(x_data[GnPs[GnP_idx]], v_obs_Ep[GnPs[GnP_idx]], color='C3', s=64)
     az.plot_hdi(
@@ -690,7 +690,7 @@ def plot_posterior_predictive(idata_dict, v_obs_Ep, v_obs_Epp, x_data, GnPs, GnP
     mark_inset(axes[0], axins1, loc1=2, loc2=4, fc="none", ec="0.5")
 
     # Second inset for Ep_pred
-    axins2 = zoomed_inset_axes(axes[0], zoom=1.5, loc='upper center')
+    axins2 = zoomed_inset_axes(axes[0], zoom=1.5, loc=xylims['Ep_inset2']['loc'])
     axins2.loglog(x_data[GnPs[GnP_idx]], Ep_pred_mean, color='C0')
     axins2.scatter(x_data[GnPs[GnP_idx]], v_obs_Ep[GnPs[GnP_idx]], color='C3', s=64)
     az.plot_hdi(
@@ -733,7 +733,7 @@ def plot_posterior_predictive(idata_dict, v_obs_Ep, v_obs_Epp, x_data, GnPs, GnP
     )
 
     # First inset for Epp_pred
-    axins3 = zoomed_inset_axes(axes[1], zoom=1.5, loc='center right')
+    axins3 = zoomed_inset_axes(axes[1], zoom=1.5, loc=xylims['Epp_inset3']['loc'])
     axins3.loglog(x_data[GnPs[GnP_idx]], Epp_pred_mean, color='C0')
     axins3.scatter(x_data[GnPs[GnP_idx]], v_obs_Epp[GnPs[GnP_idx]], color='C3', s=64)
     az.plot_hdi(
@@ -752,7 +752,7 @@ def plot_posterior_predictive(idata_dict, v_obs_Ep, v_obs_Epp, x_data, GnPs, GnP
     mark_inset(axes[1], axins3, loc1=2, loc2=4, fc="none", ec="0.5")
 
     # Second inset for Epp_pred
-    axins4 = zoomed_inset_axes(axes[1], zoom=1.25, loc='center left')
+    axins4 = zoomed_inset_axes(axes[1], zoom=1.25, loc=xylims['Epp_inset4']['loc'])
 
     axins4.loglog(x_data[GnPs[GnP_idx]], Epp_pred_mean, color='C0')
     axins4.scatter(x_data[GnPs[GnP_idx]], v_obs_Epp[GnPs[GnP_idx]], color='C3', s=64)
