@@ -20,3 +20,10 @@ git clone git@github.com:armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitut
 cd BI-and-UQ-of-Fractional-Order-Constitutive-Models
 pip install -r requirements.txt
 ```
+
+## Quick Run
+With the following commands, you can run the inference and post-processing scripts
+```bash
+python MCMC_FMG_Inference.py --HS 20
+python MCMC_FMG_Inference_PostProcessing.py --HS 20
+```
