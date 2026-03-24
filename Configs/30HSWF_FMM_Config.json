@@ -1,0 +1,51 @@
+{
+  "file_path": {
+    "file_path_exp": "../Data/Master_Curves_Synthetic.xlsx",
+    "file_path_opt": "../Data/Model Parameters.xlsx",
+    "file_path_save": "../Results/MCMC_FMM_30HSWF"
+  },
+  "sheet_name": {
+    "sheet_name_exp": "30HS",
+    "sheet_name_opt": "TgShifted_Cutoff"
+  },
+  "rows": {
+    "start_row_exp": 3,
+    "end_row_exp": 178,
+    "start_row_opt": 8,
+    "end_row_opt": 12
+  },
+  "cols_opt": [3, 4, 5, 6, 7, 8, 9],
+  "cols_GnP": {
+    "0.0GnP": [1, 2, 3],
+    "0.5GnP": [6, 7, 8],
+    "1.0GnP": [11, 12, 13],
+    "1.5GnP": [16, 17, 18]
+  },
+  "GnPs": ["0.0GnP", "0.5GnP", "1.0GnP", "1.5GnP"],
+  "omega_limits": {
+    "omega_min": [1e-8, 1e-8, 1e-8, 2.7e-8],
+    "omega_max": [1.15e1, 1e2, 1e2, 2e1]
+  },
+  "rcParams_plot": {
+    "font.size": 20,
+    "axes.labelsize": 20,
+    "xtick.labelsize": 20,
+    "ytick.labelsize": 20,
+    "legend.fontsize": 10,
+    "axes.titlesize": 16,
+    "markers": ["o", "s", "^", "D"],
+    "linestyles": [":", "-.", "--", "-"],
+    "font.family": "serif",
+    "mathtext.fontset": "cm",
+    "mathtext.rm": "serif",
+    "mathtext.it": "serif:italic",
+    "mathtext.bf": "serif:bold"
+  },
+  "hyperparams": {
+    "draws": 5000,
+    "tune": 1000,
+    "chains": 4,
+    "cores": 4,
+    "target_accept": 0.80
+  }
+}
