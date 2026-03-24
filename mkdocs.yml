@@ -18,16 +18,34 @@ theme:
     - navigation.expand
     - navigation.path
     - navigation.top
-    - toc.integrate
+    - navigation.indexes
 
 plugins:
   - search
+  - caption
   - mkdocstrings:
       default_handler: python
       handlers:
         python:
           paths: [.]
 
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
 nav:
   - Home: index.md
-  - API Reference: api.md
+  - Datasets:
+      - Experimental Characterization: Datasets_Experimental.md
+      - Synthetic Data: Datasets_Synthetic.md
+  - Configs: Configs.md
+  - Constitutive Modeling and Probabilistic Calibration:
+      - Constitutive Models: Constitutive_Models.md
+      - Probabilistic Calibration: Probabilistic_Calibration.md
+  - API Reference:
+      - FMG-FMG Model: Inference_Funcs_FMG.md
+      - FMM-FMG Model: Inference_Funcs_FMM.md
