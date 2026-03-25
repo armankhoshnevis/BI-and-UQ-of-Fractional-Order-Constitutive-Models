@@ -10,11 +10,11 @@ Fractional-order constitutive models are powerful tools for capturing the memory
 
 ![Constitutive models: FMG–FMG and FMM–FMG](docs/images/Models.jpg)
 
-![Graph representation of the Bayesian calibration framework for the FMM–FMG model](docs/images/Graph_Rep.png){ width="80%"}
+![Graph representation of the Bayesian calibration framework for the FMM–FMG model](docs/images/Graph_Rep.png)
 
-![Kernel density estimates of the inferred marginal posterior distributions for model parameters for the 30% HSWF, 0.5 wt.% xGnP](docs/images/Posterior_Distribution.png){ width="70%"}
+![Kernel density estimates of the inferred marginal posterior distributions for model parameters for the 30% HSWF, 0.5 wt.% xGnP](docs/images/Posterior_Distribution.png)
 
-![Forward uncertainty propagation to the FMM–FMG model](docs/images/Forward_UQ.png){ width="80%"}
+![Forward uncertainty propagation to the FMM–FMG model](docs/images/Forward_UQ.png)
 
 ## Documentaion
 A thorough documentation can be found [here](https://armankhoshnevis.github.io/BI-and-UQ-of-Fractional-Order-Constitutive-Models/).
