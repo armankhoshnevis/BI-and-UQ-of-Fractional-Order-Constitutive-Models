@@ -5,11 +5,13 @@ site_author: Arman Khoshnevis
 repo_url: https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models
 site_url: https://armankhoshnevis.github.io/BI-and-UQ-of-Fractional-Order-Constitutive-Models/
 repo_name: armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models
+docs_dir: docs
+site_dir: site
 
 theme:
   name: material
   palette:
-    scheme: 
+    scheme:
     primary: blue
     accent: light blue
   features:
@@ -20,6 +22,11 @@ theme:
     - navigation.path
     - navigation.top
     - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.tooltips
 
 plugins:
   - search
@@ -29,6 +36,8 @@ plugins:
       handlers:
         python:
           paths: [.]
+          options:
+            docstring_style: google
 
 markdown_extensions:
   - pymdownx.arithmatex:
