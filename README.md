@@ -1,9 +1,12 @@
 # Bayesian Calibration and Uncertainty Quantification for Fractional-Order Constitutive Models
 
-Welcome to the repository for the **BI and UQ of Fractional-Order Constitutive Models** framework. This repository provides computational tools to apply machine learning and Bayesian inference techniques to complex mechanical models.
+Welcome to the repository for the **BI and UQ of Fractional-Order Constitutive Models** framework. This repository provides computational tools to apply Bayesian inference to fractional consitutive models for linear viscoelastic behavior of complex materials.
 
 ## Overview
 Fractional-order constitutive models are powerful tools for capturing the memory-dependent and anomalous behavior of materials. However, identifying their parameters requires robust probabilistic frameworks. This project utilizes Bayesian calibration to not only estimate these parameters but also quantify the underlying uncertainties in the data and the model itself.
+
+## Documentaion
+A thorough documentation is provided [here](https://armankhoshnevis.github.io/BI-and-UQ-of-Fractional-Order-Constitutive-Models/).
 
 ## Repository Structure
 * **`Configs/`**: Configuration files for setting up MCMC chains, priors, and model hyperparameters.
@@ -11,6 +14,7 @@ Fractional-order constitutive models are powerful tools for capturing the memory
 * **`Jupyter_Notebooks/`**: Jupyter notebook equivalents of the python codes for interactive use.
 * **`Python_Scripts/`**: Main inference script, helper functions, and post-processing scripts.
 * **`Results/`**: Output directories for trace plots, posterior distributions, predictive checks, etc.
+* **`docs/`**: Documentaions.
 
 ## Installation
 Clone the repository and install the required dependencies:
