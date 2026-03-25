@@ -8,17 +8,6 @@ Fractional-order constitutive models are powerful tools for capturing the memory
 ## Results Sumamry
 ![Experimental dataset for (a) 20, (b) 30, and (d) 40 HSWF](docs/images/Experimental_Data.png)
 
-<figure style="text-align: center;">
-  <img
-    src="docs/images/Experimental_Data.png"
-    alt="Experimental dataset"
-    style="width: 60%; height: auto;"
-  >
-  <figcaption>
-    Experimental dataset for (a) 20, (b) 30, and (d) 40 HSWF
-  </figcaption>
-</figure>
-
 ![Constitutive models: FMG–FMG and FMM–FMG](docs/images/Models.jpg)
 
 ![Graph representation of the Bayesian calibration framework for the FMM–FMG model](docs/images/Graph_Rep.png)
