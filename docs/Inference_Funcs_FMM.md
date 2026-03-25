@@ -1,10 +1,10 @@
 # API Reference
 
-This section contains the auto-generated documentation from the Python source code. It details the functions and classes used for the uncertainty quantification and fractional-order calculations.
+This section contains the auto-generated documentation from the helper functions for FMG–FMG model (`Inference_Funcs_FMM.md`). Tasks raning from loading data and defining storage and loss moduli, to performing the inference and calculating various metrics and plotting are executed separately by various functions.
 
 ## Bayesian Inference Module
 
-::: Python_Scripts.Inference_Funcs_FMG
+::: Python_Scripts.Inference_Funcs_FMM
     options:
       show_root_heading: true
       show_source: true
