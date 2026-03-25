@@ -3,6 +3,7 @@ site_description: Bayesian Calibration and Uncertainty Quantification for Fracti
 site_author: Arman Khoshnevis
 
 repo_url: https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models
+site_url: https://armankhoshnevis.github.io/BI-and-UQ-of-Fractional-Order-Constitutive-Models/
 repo_name: armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models
 
 theme:
@@ -32,6 +33,7 @@ plugins:
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
+  - attr_list
 
 extra_javascript:
   - javascripts/mathjax.js

@@ -1,14 +1,8 @@
 PUA nanocomposites exhibit microphase separation into a soft-phase matrix and a stiffer, percolated hard phase due to strong hydrogen bonding within the hard phase. Consistent with this morphology, we use two models, each with two parallel fractional branches: FMG–FMG model has an FMG branch for each of the soft-phase matrix and percolated hard phase; FMM–FMG model has an FMM branch for the soft-phase matrix and an FMG branch for the percolated hard phase. At the relatively low nanofiller loadings considered here, no separate nanoparticle branch is introduced, and fillers are assumed to be uniformly dispersed within the two phases. The schematic of the models are provided as follows:
 
-<figure style="text-align: center;">
-  <img src="/images/FMG_FMG.jpg" style="width: 40%;">
-  <figcaption>Figure 1. Schematic of FMG–FMG model</figcaption>
-</figure>
+![FMG-FMG model](images/FMG_FMG.jpg){ width="40%" }
 
-<figure style="text-align: center;">
-  <img src="/images/FMM_FMG.jpg" style="width: 40%;">
-  <figcaption>Figure 2. Schematic of FMM–FMG model</figcaption>
-</figure>
+![FMG-FMG model](images/FMM_FMG.jpg){ width="40%" }
 
 The resulting models use six to seven parameters: characteristic moduli $(E_{c_1}, E_{c_2})$, characteristic relaxation times $(\tau_{c_1}, \tau_{c_2})$, power exponents $(\alpha_1, \alpha_2)$, and an additional exponent $\beta_1$ associated with the second spring-pot element in the FMM branch. The equivalent storage and loss moduli are given by
 
