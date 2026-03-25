@@ -24,7 +24,7 @@ pip install -r requirements.txt
 ```
 
 ## Quick Run
-With the following commands, you can run the inference and post-processing scripts
+With the following commands, you can run the inference and post-processing scripts:
 ```bash
 python MCMC_FMG_Inference.py --HS 20
 python MCMC_FMG_Inference_PostProcessing.py --HS 20
