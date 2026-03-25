@@ -153,6 +153,8 @@
         </button>
       </nav>
       
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
@@ -743,6 +745,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#schematic-of-the-bayesian-calibration-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schematic of the Bayesian Calibration Framework
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -978,6 +991,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#schematic-of-the-bayesian-calibration-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schematic of the Bayesian Calibration Framework
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1117,9 +1141,11 @@ E_{c_2} = E_{c_1} \left(\frac{\tau_{c_1}}{\tau_{c_2}}\right)^2,
 <div class="arithmatex">\[
 \boldsymbol{\theta} = [E_{c_1}, \alpha_1, \alpha_2, \sigma_{E'}, \sigma_{E''}].
 \]</div>
-<p>Please refer to our <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/eng2.70367">previous</a> and current papers regarding the sensitivity analysis, influential parameter identification, and proposed constraint linking phases.</p>
+<p>Please refer to our <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/eng2.70367">previous</a> and current papers regarding the sensitivity analysis, influential parameter identification, and proposed constraint that links the phases.</p>
 <h3 id="sampling">Sampling</h3>
 <p>Posterior inference is performed using PyMC with the No-U-Turn Sampler (NUTS). Four chains are run with 4,000 tuning iterations and <span class="arithmatex">\(10^6\)</span> posterior samples per chain, enabling efficient exploration of the parameter space.</p>
+<h3 id="schematic-of-the-bayesian-calibration-framework">Schematic of the Bayesian Calibration Framework</h3>
+<p><figure id="_figure-1"><img alt="Graph representation of the Bayesian calibration framework for the FMM–FMG model" src="../images/Graph_Rep.png"><figcaption>Figure 1: Graph representation of the Bayesian calibration framework for the FMM–FMG model</figcaption></figure></p>
 
 
 
@@ -1175,7 +1201,7 @@ E_{c_2} = E_{c_1} \left(\frac{\tau_{c_1}}{\tau_{c_2}}\right)^2,
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "navigation.indexes"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tooltips"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
