@@ -3,7 +3,7 @@
 Welcome to the repository for the **BI and UQ of Fractional-Order Constitutive Models** framework. This repository provides computational tools to apply Bayesian inference to fractional consitutive models for linear viscoelastic behavior of complex materials.
 
 ## Overview
-Fractional-order constitutive models are powerful tools for capturing the memory-dependent and anomalous behavior of materials. However, identifying their parameters requires robust probabilistic frameworks. This project utilizes Bayesian calibration to not only estimate these parameters but also quantify the underlying uncertainties in the data and the model itself.
+Fractional-order constitutive models are powerful tools for capturing the memory-dependent and anomalous behavior of materials, especially thoese with power-law behavior spanned across decades of time scales. In this study and repository, Bayesian calibration with MCMC sampling technique (NUTS algorithm in PyMC package) are utilized to infere the model parameters, construct their posterior distributions, and quantify the uncertainties in the model responses.
 
 ## Documentaion
 A thorough documentation is provided [here](https://armankhoshnevis.github.io/BI-and-UQ-of-Fractional-Order-Constitutive-Models/).
