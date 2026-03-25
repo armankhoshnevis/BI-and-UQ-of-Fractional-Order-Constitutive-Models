@@ -89,8 +89,12 @@ $$
 \boldsymbol{\theta} = [E_{c_1}, \alpha_1, \alpha_2, \sigma_{E'}, \sigma_{E''}].
 $$
 
-Please refer to our [previous](https://onlinelibrary.wiley.com/doi/full/10.1002/eng2.70367) and current papers regarding the sensitivity analysis, influential parameter identification, and proposed constraint linking phases.
+Please refer to our [previous](https://onlinelibrary.wiley.com/doi/full/10.1002/eng2.70367) and current papers regarding the sensitivity analysis, influential parameter identification, and proposed constraint that links the phases.
 
 ### Sampling
 
 Posterior inference is performed using PyMC with the No-U-Turn Sampler (NUTS). Four chains are run with 4,000 tuning iterations and $10^6$ posterior samples per chain, enabling efficient exploration of the parameter space.
+
+
+### Schematic of the Bayesian Calibration Framework
+![Graph representation of the Bayesian calibration framework for the FMM–FMG model](images/Graph_Rep.png)
