@@ -1,20 +1,8 @@
 # Bayesian Calibration and Uncertainty Quantification for Fractional-Order Constitutive Models
-
 Welcome to the documentation for the **Bayesian Inference and Uncertainty Quantification of Fractional-Order Constitutive Models** framework. This repository provides computational tools to apply machine learning and Bayesian inference techniques to complex mechanical models.
 
 ## Overview
 Fractional-order constitutive models are powerful tools for capturing the memory-dependent and anomalous behavior of materials, especially thoese with power-law behavior spanned across decades of time scales. In this study and repository, Bayesian calibration with MCMC sampling technique (NUTS algorithm in PyMC package) are utilized to infere the model parameters, construct their posterior distributions, and quantify the uncertainties in the model responses.
-
-## Results Sumamry
-![Experimental dataset for (a) 20, (b) 30, and (d) 40 HSWF](docs/images/Experimental_Data.png)
-
-![Constitutive models: FMG–FMG and FMM–FMG](docs/images/Models.jpg)
-
-![Graph representation of the Bayesian calibration framework for the FMM–FMG model](docs/images/Graph_Rep.png)
-
-![Kernel density estimates of the inferred marginal posterior distributions for model parameters for the 30% HSWF, 0.5 wt.% xGnP](docs/images/Posterior_Distribution.png)
-
-![Forward uncertainty propagation to the FMM–FMG model](docs/images/Forward_UQ.png)
 
 ## Documentaion
 A thorough documentation can be found [here](https://armankhoshnevis.github.io/BI-and-UQ-of-Fractional-Order-Constitutive-Models/).
@@ -41,3 +29,14 @@ With the following commands, you can run the inference and post-processing scrip
 python MCMC_FMG_Inference.py --HS 20
 python MCMC_FMG_Inference_PostProcessing.py --HS 20
 ```
+
+## Results Sumamry
+![Experimental dataset for (a) 20, (b) 30, and (d) 40 HSWF](docs/images/Experimental_Data.png)
+
+![Constitutive models: FMG–FMG and FMM–FMG](docs/images/Models.jpg)
+
+![Graph representation of the Bayesian calibration framework for the FMM–FMG model](docs/images/Graph_Rep.png)
+
+![Kernel density estimates of the inferred marginal posterior distributions for model parameters for the 30% HSWF, 0.5 wt.% xGnP](docs/images/Posterior_Distribution.png)
+
+![Forward uncertainty propagation to the FMM–FMG model](docs/images/Forward_UQ.png)
