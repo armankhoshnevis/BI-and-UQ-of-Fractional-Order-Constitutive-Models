@@ -38,3 +38,21 @@ With the following commands, you can run the inference and post-processing scrip
 python MCMC_FMG_Inference.py --HS 20
 python MCMC_FMG_Inference_PostProcessing.py --HS 20
 ```
+
+## Citation Requirements
+If you use this software, please cite it and its corresponding paper, as:
+- Software citation:
+  - APA style: Khoshnevis, A. (2026). Bayesian Calibration and Uncertainty Quantification for Fractional-Order Constitutive Models (Version 1.0.0) [Computer software]. https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models
+
+  - BibTeX entry:<br>
+    @software{Khoshnevis_Bayesian_Calibration_and_2026, <br>
+    author = {Khoshnevis, Arman},<br>
+    license = {Apache-2.0},<br>
+    month = mar,<br>
+    title = {{Bayesian Calibration and Uncertainty Quantification for Fractional-Order Constitutive Models}},<br>
+    url = {https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models},<br>
+    version = {1.0.0},<br>
+    year = {2026}<br>
+    }
+
+- Paper citation: Will be provided once published.
