@@ -8,27 +8,46 @@ Fractional-order constitutive models are powerful tools for capturing the memory
 A thorough documentation can be found [here](https://armankhoshnevis.github.io/BI-and-UQ-of-Fractional-Order-Constitutive-Models/).
 
 ## Repository Structure
-* **`Configs/`**: Configuration files for setting up MCMC chains, priors, and model hyperparameters.
-* **`Data/`**: Synthetic experimental dataset and optimized model parameters used for the calibration process.
-* **`Jupyter_Notebooks/`**: Jupyter notebook equivalents of the python codes for interactive use.
-* **`Python_Scripts/`**: Main inference script, helper functions, and post-processing scripts.
-* **`Results/`**: Output directories for trace plots, posterior distributions, predictive checks, etc.
+* **`configs/`**: Configuration files for setting up MCMC chains, priors, and model hyperparameters.
+* **`datasets/`**: Synthetic experimental dataset and optimized model parameters used for the calibration process.
+* **`notebooks/`**: Jupyter notebook equivalents of the python codes for interactive use.
+* **`scripts/`**: Main inference script, helper functions, and post-processing scripts.
+* **`results/`**: Output directories for trace plots, posterior distributions, predictive checks, etc.
 
 ## Installation
-Clone the repository and install the required dependencies:
+Here is a quick guide to clone the repository, setup a virtual environment, and install the dependencies.
 
-```bash
-git clone git@github.com:armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models.git
-cd BI-and-UQ-of-Fractional-Order-Constitutive-Models
-pip install -r requirements.txt
-```
+1. **Clone the repository:**
+   ```bash
+    git clone git@github.com:armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models.git
+    cd BI-and-UQ-of-Fractional-Order-Constitutive-Models
+    ```
+
+2.  **Set up a virtual environment (optional but recommended):**
+    ```bash
+    python -m venv env
+    # On Windows:
+    .\env\Scripts\activate
+    # On macOS/Linux:
+    source env/bin/activate
+    ```
+
+3.  **Install the dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 ## Quick Run
-With the following commands, you can run the inference and post-processing scripts:
-```bash
-python MCMC_FMG_Inference.py --HS 20
-python MCMC_FMG_Inference_PostProcessing.py --HS 20
-```
+1. **Navigate to the `script` directory:**
+   ```bash
+   cd script
+   ```
+
+2. **Run the inference and post-processing scripts:**
+   ```bash
+   python MCMC_FMG_Inference.py --HS 20
+   python MCMC_FMG_Inference_PostProcessing.py --HS 20
+   ```
 
 ## Results Sumamry
 ![Experimental dataset for (a) 20, (b) 30, and (d) 40 HSWF](docs/images/Experimental_Data.png)
