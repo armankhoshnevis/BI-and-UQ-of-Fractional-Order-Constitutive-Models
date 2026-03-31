@@ -41,6 +41,7 @@ python MCMC_FMG_Inference_PostProcessing.py --HS 20
 
 ## Citation Requirements
 If you use this software, please cite it and its corresponding paper, as:
+
 - Software citation:
   - APA style: Khoshnevis, A. (2026). Bayesian Calibration and Uncertainty Quantification for Fractional-Order Constitutive Models (Version 1.0.0) [Computer software]. https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models
 
