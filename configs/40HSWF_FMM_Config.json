@@ -2,7 +2,7 @@
   "file_path": {
     "file_path_exp": "../datasets/Master_Curves_Synthetic.xlsx",
     "file_path_opt": "../datasets/Model Parameters.xlsx",
-    "file_path_save": "../Results/MCMC_FMM_40HSWF"
+    "file_path_save": "../results/MCMC_FMM_40HSWF"
   },
   "sheet_name": {
     "sheet_name_exp": "40HS",
