@@ -24,7 +24,7 @@ args = parser.parse_args()
 HS = args.HS
 
 # Load configuration and data
-with open(f'../Configs/{HS}HSWF_FMM_Config.json', 'r') as config_file:
+with open(f'../configs/{HS}HSWF_FMM_Config.json', 'r') as config_file:
     config = json.load(config_file)
 
 file_path = config['file_path']
