@@ -146,7 +146,7 @@ def load_data(file_path, sheet_name, rows, cols_opt, cols_GnP, omega_limits, rcP
     plt.tight_layout()
 
     os.makedirs(file_path['file_path_save'], exist_ok=True)
-    plt.savefig(f"{file_path['file_path_save']}/Data_{sheet_name['sheet_name_exp']}.png", dpi=300, bbox_inches='tight')
+    plt.savefig(f"{file_path['file_path_save']}/datasets_{sheet_name['sheet_name_exp']}.png", dpi=300, bbox_inches='tight')
     
     return v_obs_Ep, v_obs_Epp, x_data, optimized_params_df
 
