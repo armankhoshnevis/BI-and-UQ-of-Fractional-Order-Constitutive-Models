@@ -21,7 +21,7 @@ echo "Job started at $(date)"
 echo "Running on host $(hostname)"
 
 # Run the Python script
-python MCMC_FMG_Inference.py --HS 20
+python MCMC_FMG_Inference.py --HS 40
 
 # python MCMC_FMG_Inference_PostProcessing.py --HS 40
 
