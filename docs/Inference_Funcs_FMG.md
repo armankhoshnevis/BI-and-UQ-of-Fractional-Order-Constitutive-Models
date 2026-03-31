@@ -4,7 +4,7 @@ This section contains the auto-generated documentation from the helper functions
 
 ## Bayesian Inference Module
 
-::: Python_Scripts.Inference_Funcs_FMG
+::: scripts.Inference_Funcs_FMG
     options:
       show_root_heading: true
       show_source: true

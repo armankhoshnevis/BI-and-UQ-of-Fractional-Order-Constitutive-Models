@@ -17,11 +17,11 @@ Fractional-order constitutive models are powerful tools for capturing the memory
 ![Forward uncertainty propagation to the FMM–FMG model](images/Forward_UQ.png){ width="80%"}
 
 ## Repository Structure
-* **`Configs/`**: Configuration files for setting up MCMC chains, priors, and model hyperparameters.
-* **`Data/`**: Synthetic experimental dataset and optimized model parameters used for the calibration process.
-* **`Jupyter_Notebooks/`**: Jupyter notebook equivalents of the python codes for interactive use.
-* **`Python_Scripts/`**: Main inference script, helper functions, and post-processing scripts.
-* **`Results/`**: Output directories for trace plots, posterior distributions, predictive checks, etc.
+* **`configs/`**: Configuration files for setting up MCMC chains, priors, and model hyperparameters.
+* **`datasets/`**: Synthetic experimental dataset and optimized model parameters used for the calibration process.
+* **`notebooks/`**: Jupyter notebook equivalents of the python codes for interactive use.
+* **`scripts/`**: Main inference script, helper functions, and post-processing scripts.
+* **`results/`**: Output directories for trace plots, posterior distributions, predictive checks, etc.
 
 ## Installation
 Clone the repository and install the required dependencies:
