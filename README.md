@@ -15,39 +15,51 @@ A thorough documentation can be found [here](https://armankhoshnevis.github.io/B
 * **`results/`**: Output directories for trace plots, posterior distributions, predictive checks, etc.
 
 ## Installation
-Here is a quick guide to clone the repository, setup a virtual environment, and install the dependencies.
+First, clone the repository and navigate into the project directory:
+```bash
+git clone git@github.com:armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models.git
+cd BI-and-UQ-of-Fractional-Order-Constitutive-Models
+```
 
-1. **Clone the repository:**
-   ```bash
-    git clone git@github.com:armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models.git
-    cd BI-and-UQ-of-Fractional-Order-Constitutive-Models
-    ```
+### Option A: Python venv & pip (Recommended for Running Locally)
+If it is preferred to use standard Python virtual environments locally, `pip` alongside the `requirements.txt` file can be used. Then, execute the following commands:
+```bash
+python -m venv env
 
-2.  **Set up a virtual environment (optional but recommended):**
-    ```bash
-    python -m venv env
-    # On Windows:
-    .\env\Scripts\activate
-    # On macOS/Linux:
-    source env/bin/activate
-    ```
+# On Windows:
+.\env\Scripts\activate
 
-3.  **Install the dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
+# On macOS/Linux:
+source env/bin/activate
+
+pip install -r requirements.txt
+```
+
+### Option B: Conda (Recommended for Running on Clusters)
+If it is preferred to run the codes on a cluster, `environment.yml` file is used to ensure exact dependency and Python version matching. Then, execute the following commands:
+```bash
+module load Miniforge3 # Replace with your specific cluster's module if different
+conda env create -f environment.yml
+conda activate UQ_Project
+```
 
 ## Quick Run
-1. **Navigate to the `script` directory:**
-   ```bash
-   cd script
-   ```
+### Running Locally
+Once your environment is activated (via Conda or venv), navigate to the `script` directory and execute the Python files directly from your terminal:
+```bash
+cd script
+python MCMC_FMG_Inference.py --HS 20
+python MCMC_FMG_Inference_PostProcessing.py --HS 20
+```
 
-2. **Run the inference and post-processing scripts:**
-   ```bash
-   python MCMC_FMG_Inference.py --HS 20
-   python MCMC_FMG_Inference_PostProcessing.py --HS 20
-   ```
+### Running on a SLURM Cluster
+If you are running the inference on a cluster that uses the SLURM workload manager, a sample batch script (`MCMC_FMG.sh` and `MCMC_FMM.sh`) is provided. The script is pre-configured to activate the UQ_Project conda environment.
+```bash
+cd script
+sbatch MCMC_FMG.sb
+```
+
+*Note:* The script's output and any errors will be automatically logged to standard `.out` and `.err` files in the working directory.
 
 ## Results Sumamry
 ![Experimental dataset for (a) 20, (b) 30, and (d) 40 HSWF](docs/images/Experimental_Data.png)
