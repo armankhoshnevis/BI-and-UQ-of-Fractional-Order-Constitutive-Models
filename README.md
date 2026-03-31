@@ -40,3 +40,21 @@ python MCMC_FMG_Inference_PostProcessing.py --HS 20
 ![Kernel density estimates of the inferred marginal posterior distributions for model parameters for the 30% HSWF, 0.5 wt.% xGnP](docs/images/Posterior_Distribution.png)
 
 ![Forward uncertainty propagation to the FMM–FMG model](docs/images/Forward_UQ.png)
+
+## Citation Requirements
+If you use this software, please cite it and its corresponding paper, as:
+- Software citation:
+  - APA style: Khoshnevis, A. (2026). Bayesian Calibration and Uncertainty Quantification for Fractional-Order Constitutive Models (Version 1.0.0) [Computer software]. https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models
+
+  - BibTeX entry:<br>
+    @software{Khoshnevis_Bayesian_Calibration_and_2026, <br>
+    author = {Khoshnevis, Arman},<br>
+    license = {Apache-2.0},<br>
+    month = mar,<br>
+    title = {{Bayesian Calibration and Uncertainty Quantification for Fractional-Order Constitutive Models}},<br>
+    url = {https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models},<br>
+    version = {1.0.0},<br>
+    year = {2026}<br>
+    }
+
+- Paper citation: Will be provided once published.
