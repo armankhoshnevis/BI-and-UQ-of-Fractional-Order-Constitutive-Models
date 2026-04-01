@@ -13,20 +13,51 @@ Fractional-order constitutive models are powerful tools for capturing the memory
 * **`results/`**: Output directories for trace plots, posterior distributions, predictive checks, etc.
 
 ## Installation
-Clone the repository and install the required dependencies:
-
+First, clone the repository and navigate into the project directory:
 ```bash
 git clone git@github.com:armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models.git
 cd BI-and-UQ-of-Fractional-Order-Constitutive-Models
+```
+
+### Option A: Python venv & pip (Recommended for Running Locally)
+If it is preferred to use standard Python virtual environments locally, `pip` alongside the `requirements.txt` file can be used. Then, execute the following commands:
+```bash
+python -m venv env
+
+# On Windows:
+.\env\Scripts\activate
+
+# On macOS/Linux:
+source env/bin/activate
+
 pip install -r requirements.txt
 ```
 
-## Quick Run
-With the following commands, you can run the inference and post-processing scripts
+### Option B: Conda (Recommended for Running on Clusters)
+If it is preferred to run the codes on a cluster, `environment.yml` file is used to ensure exact dependency and Python version matching. Then, execute the following commands:
 ```bash
+module load Miniforge3 # Replace with your specific cluster's module if different
+conda env create -f environment.yml
+conda activate UQ_Project
+```
+
+## Quick Run
+### Running Locally
+Once your environment is activated (via Conda or venv), navigate to the `script` directory and execute the Python files directly from your terminal:
+```bash
+cd script
 python MCMC_FMG_Inference.py --HS 20
 python MCMC_FMG_Inference_PostProcessing.py --HS 20
 ```
+
+### Running on a SLURM Cluster
+If you are running the inference on a cluster that uses the SLURM workload manager, a sample batch script (`MCMC_FMG.sh` and `MCMC_FMM.sh`) is provided. The script is pre-configured to activate the UQ_Project conda environment.
+```bash
+cd script
+sbatch MCMC_FMG.sb
+```
+
+*Note:* The script's output and any errors will be automatically logged to standard `.out` and `.err` files in the working directory.
 
 ## Documentation
 Please refer to this [link](https://armankhoshnevis.github.io/BI-and-UQ-of-Fractional-Order-Constitutive-Models/) for more comprehensive documentations.
