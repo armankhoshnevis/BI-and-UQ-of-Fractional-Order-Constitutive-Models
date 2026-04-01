@@ -69,7 +69,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -487,6 +487,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-a-python-venv-pip-recommended-for-running-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option A: Python venv &amp; pip (Recommended for Running Locally)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-b-conda-recommended-for-running-on-clusters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option B: Conda (Recommended for Running on Clusters)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -497,6 +525,34 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Quick Run">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running Locally
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-on-a-slurm-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running on a SLURM Cluster
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1169,6 +1225,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-a-python-venv-pip-recommended-for-running-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option A: Python venv &amp; pip (Recommended for Running Locally)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-b-conda-recommended-for-running-on-clusters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option B: Conda (Recommended for Running on Clusters)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1179,6 +1263,34 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Quick Run">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running Locally
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-on-a-slurm-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running on a SLURM Cluster
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1245,16 +1357,41 @@
 <li><strong><code>results/</code></strong>: Output directories for trace plots, posterior distributions, predictive checks, etc.</li>
 </ul>
 <h2 id="installation">Installation</h2>
-<p>Clone the repository and install the required dependencies:</p>
+<p>First, clone the repository and navigate into the project directory:</p>
 <pre><code class="language-bash">git clone git@github.com:armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models.git
 cd BI-and-UQ-of-Fractional-Order-Constitutive-Models
+</code></pre>
+<h3 id="option-a-python-venv-pip-recommended-for-running-locally">Option A: Python venv &amp; pip (Recommended for Running Locally)</h3>
+<p>If it is preferred to use standard Python virtual environments locally, <code>pip</code> alongside the <code>requirements.txt</code> file can be used. Then, execute the following commands:</p>
+<pre><code class="language-bash">python -m venv env
+
+# On Windows:
+.\env\Scripts\activate
+
+# On macOS/Linux:
+source env/bin/activate
+
 pip install -r requirements.txt
 </code></pre>
+<h3 id="option-b-conda-recommended-for-running-on-clusters">Option B: Conda (Recommended for Running on Clusters)</h3>
+<p>If it is preferred to run the codes on a cluster, <code>environment.yml</code> file is used to ensure exact dependency and Python version matching. Then, execute the following commands:</p>
+<pre><code class="language-bash">module load Miniforge3 # Replace with your specific cluster's module if different
+conda env create -f environment.yml
+conda activate UQ_Project
+</code></pre>
 <h2 id="quick-run">Quick Run</h2>
-<p>With the following commands, you can run the inference and post-processing scripts</p>
-<pre><code class="language-bash">python MCMC_FMG_Inference.py --HS 20
+<h3 id="running-locally">Running Locally</h3>
+<p>Once your environment is activated (via Conda or venv), navigate to the <code>script</code> directory and execute the Python files directly from your terminal:</p>
+<pre><code class="language-bash">cd script
+python MCMC_FMG_Inference.py --HS 20
 python MCMC_FMG_Inference_PostProcessing.py --HS 20
 </code></pre>
+<h3 id="running-on-a-slurm-cluster">Running on a SLURM Cluster</h3>
+<p>If you are running the inference on a cluster that uses the SLURM workload manager, a sample batch script (<code>MCMC_FMG.sh</code> and <code>MCMC_FMM.sh</code>) is provided. The script is pre-configured to activate the UQ_Project conda environment.</p>
+<pre><code class="language-bash">cd script
+sbatch MCMC_FMG.sb
+</code></pre>
+<p><strong>Note:</strong> The script's output and any errors will be automatically logged to standard <code>.out</code> and <code>.err</code> files in the working directory.</p>
 <h2 id="citation-requirements">Citation Requirements</h2>
 <p>If you use this software, please cite it and its corresponding paper, as:</p>
 <ul>
