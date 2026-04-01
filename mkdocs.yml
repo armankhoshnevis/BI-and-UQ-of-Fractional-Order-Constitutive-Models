@@ -11,9 +11,9 @@ site_dir: site
 theme:
   name: material
   palette:
-    scheme:
+    scheme: slate
     primary: blue
-    accent: light blue
+    accent: indigo
   features:
     - navigation.tabs
     - navigation.tabs.sticky
