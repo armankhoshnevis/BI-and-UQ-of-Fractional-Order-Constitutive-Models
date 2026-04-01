@@ -57,7 +57,7 @@ cd script
 sbatch MCMC_FMG.sb
 ```
 
-*Note:* The script's output and any errors will be automatically logged to standard `.out` and `.err` files in the working directory.
+**Note:** The script's output and any errors will be automatically logged to standard `.out` and `.err` files in the working directory.
 
 ## Documentation
 Please refer to this [link](https://armankhoshnevis.github.io/BI-and-UQ-of-Fractional-Order-Constitutive-Models/) for more comprehensive documentations.
