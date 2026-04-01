@@ -57,6 +57,8 @@ nav:
   - Constitutive Modeling and Probabilistic Calibration:
       - Constitutive Models: Constitutive_Models.md
       - Probabilistic Calibration: Probabilistic_Calibration.md
+  - Results Summary:
+      - Figures: Results_Summary.md
   - API Reference:
       - FMG-FMG Model: Inference_Funcs_FMG.md
       - FMM-FMG Model: Inference_Funcs_FMM.md
