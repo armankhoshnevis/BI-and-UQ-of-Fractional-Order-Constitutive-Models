@@ -49,3 +49,6 @@ If you use this software, please cite it and its corresponding paper, as:
     }
 
 - Paper citation: Will be provided once published.
+
+## Contributions
+This repository is a static archive of the project code. The software is provided "as-is" and is not actively maintained. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
