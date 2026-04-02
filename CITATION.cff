@@ -17,8 +17,8 @@ license: Apache-2.0
 keywords:
   - Bayesian Inference
   - Uncertainty Quantification
-  - MCMC
+  - MCMC Sampling
   - Viscoelasticity
-  - Constitutive Modeling
-  - Fractional-Order Calculus
+  - Constitutive Model
+  - Fractional Calculus
   - Polyurea Nanocomposites
