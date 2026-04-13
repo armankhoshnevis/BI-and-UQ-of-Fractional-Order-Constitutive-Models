@@ -1,6 +1,11 @@
 # Bayesian Calibration and Uncertainty Quantification for Fractional-Order Constitutive Models
 
-Welcome to the documentation for the **Bayesian Inference and Uncertainty Quantification of Fractional-Order Constitutive Models** framework. This repository provides computational tools to apply machine learning and Bayesian inference techniques to complex mechanical models.
+This repository provides a computational framework for conducting Bayesian inference and uncertainty quantification on fractional-order constitutive models. The framework relies on the PyMC package, a probabilistic programming library design for robust construction of inference problems.
+
+# Big Picture
+This repository is a part of a larger project aiming to develop a framework for deterministic and probabilistic calibration of fractional-order constitutive models capturing the linear viscoelastic response of polyurea nanocomposites. Deterministic calibration has been accomplished with PSO ([Optimization Repository](https://github.com/armankhoshnevis/Optimization-of-Fractional-Order-Constitutive-Models)), while derivative-based local sensitivity analysis (LSA) and variance-based global sensitivity analysis (GSA) have been conducted as a bridge toward a probabilistic perspective ([Sensitivity Analysis Repository](https://github.com/armankhoshnevis/Sensitivity-Analysis-of-Fractional-Order-Constitutive-Models)). These analyses facilitate factor prioritization and dimensionality reduction by identifying non-influential parameters that can be treated deterministically. Finally, Bayesian inference and uncertainty quantification (UQ) have been performed to conclude this comprehensive model development and analysis framework. Figure 1 depicts a schematic overview of this framework. This repository focuses specifically on the sensitivity analysis components.
+
+![Overview of Deterministic and Probabilistic Calibration of Fractional-Order Constitutive Models](docs/images/Overview.jpg)
 
 ## Overview
 Fractional-order constitutive models are powerful tools for capturing the memory-dependent and anomalous behavior of materials, especially thoese with power-law behavior spanned across decades of time scales. In this study and repository, Bayesian calibration with MCMC sampling technique (NUTS algorithm in PyMC package) are utilized to infere the model parameters, construct their posterior distributions, and quantify the uncertainties in the model responses.
@@ -45,7 +50,7 @@ conda activate UQ_Project
 ### Running Locally
 Once your environment is activated (via Conda or venv), navigate to the `script` directory and execute the Python files directly from your terminal:
 ```bash
-cd script
+cd scripts
 python MCMC_FMG_Inference.py --HS 20
 python MCMC_FMG_Inference_PostProcessing.py --HS 20
 ```
@@ -53,7 +58,7 @@ python MCMC_FMG_Inference_PostProcessing.py --HS 20
 ### Running on a SLURM Cluster
 If you are running the inference on a cluster that uses the SLURM workload manager, a sample batch script (`MCMC_FMG.sh` and `MCMC_FMM.sh`) is provided. The script is pre-configured to activate the UQ_Project conda environment.
 ```bash
-cd script
+cd scripts
 sbatch MCMC_FMG.sb
 ```
 
