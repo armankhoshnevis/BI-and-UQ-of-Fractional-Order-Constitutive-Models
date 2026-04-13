@@ -71,7 +71,7 @@ If you use this software, please cite it and its corresponding paper, as:
   * **APA style:** Khoshnevis, A. (2026). Bayesian Calibration and Uncertainty Quantification for Fractional-Order Constitutive Models (Version 1.0.0) [Computer software]. https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models
 
   * **BibTeX entry:** <br>
-    @software{Khoshnevis_Bayesian_Calibration_2026, <br>
+    @software{Khoshnevis_Bayesian_Calibration_and_2026, <br>
     author = {Khoshnevis, Arman},<br>
     license = {Apache-2.0},<br>
     month = mar,<br>
