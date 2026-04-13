@@ -10,9 +10,9 @@ version: 1.0.0
 date-released: 2026-03-31
 url: "https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models"
 abstract: >-
-  A computational framework for applying machine learning and Bayesian inference 
-  techniques to complex fractional-order mechanical models, including MCMC 
-  sampling and uncertainty quantification.
+  This repository provides a computational framework for conducting Bayesian inference and uncertainty quantification on 
+  fractional-order constitutive models. The framework relies on the PyMC package, a probabilistic programming library design
+  for robust construction of inference problems.
 license: Apache-2.0
 keywords:
   - Bayesian Inference
