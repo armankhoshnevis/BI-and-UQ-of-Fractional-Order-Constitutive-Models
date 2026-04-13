@@ -70,10 +70,10 @@ Please refer to this [link](https://armankhoshnevis.github.io/BI-and-UQ-of-Fract
 ## Citation Requirements
 If you use this software, please cite it and its corresponding paper, as:
 
-- Software citation:
-  - APA style: Khoshnevis, A. (2026). Bayesian Calibration and Uncertainty Quantification for Fractional-Order Constitutive Models (Version 1.0.0) [Computer software]. https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models
+* **Software citation:**
+  * **APA style:** Khoshnevis, A. (2026). Bayesian Calibration and Uncertainty Quantification for Fractional-Order Constitutive Models (Version 1.0.0) [Computer software]. https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models
 
-  - BibTeX entry:<br>
+  * **BibTeX entry:** <br>
     @software{Khoshnevis_Bayesian_Calibration_2026, <br>
     author = {Khoshnevis, Arman},<br>
     license = {Apache-2.0},<br>
@@ -84,7 +84,7 @@ If you use this software, please cite it and its corresponding paper, as:
     year = {2026}<br>
     }
 
-- Paper citation: Will be provided once published.
+  * **Paper citation:** Will be provided once published.
 
 ## Contributions
 This repository is a static archive of the project code. The software is provided "as-is" and is not actively maintained. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
