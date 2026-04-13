@@ -1056,12 +1056,10 @@
 
 
 <h1 id="bayesian-calibration-and-uncertainty-quantification-for-fractional-order-constitutive-models">Bayesian Calibration and Uncertainty Quantification for Fractional-Order Constitutive Models</h1>
-<p>This repository provides a computational framework for conducting Bayesian inference and uncertainty quantification on fractional-order constitutive models. The framework relies on the PyMC package, a probabilistic programming library design for robust construction of inference problems.</p>
+<p>This repository provides a computational framework for conducting Bayesian inference and uncertainty quantification on fractional-order constitutive models. The framework relies on the PyMC package, a probabilistic programming library design for robust construction of inference problems. Specifically, Bayesian calibration with MCMC sampling technique (NUTS algorithm in PyMC package) are utilized to infere the model parameters, construct their posterior distributions, and quantify the uncertainties in the model responses.</p>
 <h1 id="big-picture">Big Picture</h1>
-<p>This repository is a part of a larger project aiming to develop a framework for deterministic and probabilistic calibration of fractional-order constitutive models capturing the linear viscoelastic response of polyurea nanocomposites. Deterministic calibration has been accomplished with PSO (<a href="https://github.com/armankhoshnevis/Optimization-of-Fractional-Order-Constitutive-Models">Optimization Repository</a>), while derivative-based local sensitivity analysis (LSA) and variance-based global sensitivity analysis (GSA) have been conducted as a bridge toward a probabilistic perspective (<a href="https://github.com/armankhoshnevis/Sensitivity-Analysis-of-Fractional-Order-Constitutive-Models">Sensitivity Analysis Repository</a>). These analyses facilitate factor prioritization and dimensionality reduction by identifying non-influential parameters that can be treated deterministically. Finally, Bayesian inference and uncertainty quantification (UQ) have been performed to conclude this comprehensive model development and analysis framework. Figure 1 depicts a schematic overview of this framework. This repository focuses specifically on the sensitivity analysis components.</p>
+<p>This repository is a part of a larger project aiming to develop a framework for deterministic and probabilistic calibration of fractional-order constitutive models capturing the linear viscoelastic response of polyurea nanocomposites. Deterministic calibration has been accomplished with PSO (<a href="https://github.com/armankhoshnevis/Optimization-of-Fractional-Order-Constitutive-Models">Optimization Repository</a>), while derivative-based local sensitivity analysis (LSA) and variance-based global sensitivity analysis (GSA) have been conducted as a bridge toward a probabilistic perspective (<a href="https://github.com/armankhoshnevis/Sensitivity-Analysis-of-Fractional-Order-Constitutive-Models">Sensitivity Analysis Repository</a>). These analyses facilitate factor prioritization and dimensionality reduction by identifying non-influential parameters that can be treated deterministically. Finally, Bayesian inference and uncertainty quantification (UQ) have been performed to conclude this comprehensive model development and analysis framework. Figure 1 depicts a schematic overview of this framework. This repository focuses specifically on the Bayesian inference and uncertainty quantification components.</p>
 <p><figure id="_figure-1"><img alt="Overview of Deterministic and Probabilistic Calibration of Fractional-Order Constitutive Models" src="images/Overview.jpg"><figcaption>Figure 1: Overview of Deterministic and Probabilistic Calibration of Fractional-Order Constitutive Models</figcaption></figure></p>
-<h2 id="overview">Overview</h2>
-<p>Fractional-order constitutive models are powerful tools for capturing the memory-dependent and anomalous behavior of materials, especially thoese with power-law behavior spanned across decades of time scales. In this study and repository, Bayesian calibration with MCMC sampling technique (NUTS algorithm in PyMC package) are utilized to infere the model parameters, construct their posterior distributions, and quantify the uncertainties in the model responses.</p>
 <h2 id="repository-structure">Repository Structure</h2>
 <ul>
 <li><strong><code>configs/</code></strong>: Configuration files for setting up MCMC chains, priors, and model hyperparameters.</li>
@@ -1111,12 +1109,12 @@ sbatch MCMC_FMG.sb
 <h2 id="citation-requirements">Citation Requirements</h2>
 <p>If you use this software, please cite it and its corresponding paper, as:</p>
 <ul>
-<li>Software citation:</li>
+<li><strong>Software citation:</strong></li>
 <li>
-<p>APA style: Khoshnevis, A. (2026). Bayesian Calibration and Uncertainty Quantification for Fractional-Order Constitutive Models (Version 1.0.0) [Computer software]. https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models</p>
+<p><strong>APA style:</strong> Khoshnevis, A. (2026). Bayesian Calibration and Uncertainty Quantification for Fractional-Order Constitutive Models (Version 1.0.0) [Computer software]. https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models</p>
 </li>
 <li>
-<p>BibTeX entry:<br>
+<p><strong>BibTeX entry:</strong> <br>
     @software{Khoshnevis_Bayesian_Calibration_and_2026, <br>
     author = {Khoshnevis, Arman},<br>
     license = {Apache-2.0},<br>
@@ -1128,7 +1126,7 @@ sbatch MCMC_FMG.sb
     }</p>
 </li>
 <li>
-<p>Paper citation: Will be provided once published.</p>
+<p><strong>Paper citation:</strong> Will be provided once published.</p>
 </li>
 </ul>
 <h2 id="contributions">Contributions</h2>
