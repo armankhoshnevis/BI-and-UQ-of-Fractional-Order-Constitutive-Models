@@ -53,12 +53,12 @@ nav:
   - Datasets:
       - Experimental Characterization: Datasets_Experimental.md
       - Synthetic Data: Datasets_Synthetic.md
-  - Configs: Configs.md
   - Constitutive Modeling and Probabilistic Calibration:
       - Constitutive Models: Constitutive_Models.md
       - Probabilistic Calibration: Probabilistic_Calibration.md
   - Results Summary:
       - Figures: Results_Summary.md
+  - Configs: Configs.md
   - Contribution:
       - Contributing: Contribution.md
   - API Reference:
