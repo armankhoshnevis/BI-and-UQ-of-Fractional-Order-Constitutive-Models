@@ -1,19 +1,16 @@
-cff-version: 1.2.0
-message: "If you use this software, please cite it as below."
+title: BI-and-UQ-of-Fractional-Order-Constitutive-Models
 authors:
-- family-names: "Khoshnevis"
-  given-names: "Arman"
-  affiliation: "Michigan State University"
-  orcid: "https://orcid.org/0009-0008-7806-1491"
-title: "Bayesian Calibration and Uncertainty Quantification for Fractional-Order Constitutive Models"
-version: 1.0.0
-date-released: 2026-03-31
-url: "https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models"
-abstract: >-
-  This repository provides a computational framework for conducting Bayesian inference and uncertainty quantification on 
-  fractional-order constitutive models. The framework relies on the PyMC package, a probabilistic programming library design
-  for robust construction of inference problems.
-license: Apache-2.0
+  - given-names: Arman
+    family-names: Khoshnevis
+    email: khoshne1@msu.edu
+    affiliation: Michigan State University
+cff-version: 1.2.0
+message: If you use this software, please cite it using the metadata from this file.
+type: software
+abstract: This repository provides a computational framework for conducting
+  Bayesian inference and uncertainty quantification on  fractional-order
+  constitutive models. The framework relies on the PyMC package, a probabilistic
+  programming library design for robust construction of inference problems.
 keywords:
   - Bayesian Inference
   - Uncertainty Quantification
@@ -22,3 +19,7 @@ keywords:
   - Constitutive Model
   - Fractional Calculus
   - Polyurea Nanocomposites
+license: Apache-2.0
+repository-code: https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models
+date-released: 2026-03-31
+version: 1.0.0
