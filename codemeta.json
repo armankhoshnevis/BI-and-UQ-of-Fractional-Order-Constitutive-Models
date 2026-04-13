@@ -1,0 +1,40 @@
+{
+  "name": "BI-and-UQ-of-Fractional-Order-Constitutive-Models",
+  "@context": "https://w3id.org/codemeta/3.0",
+  "author": [
+    {
+      "affiliation": {
+        "name": "Michigan State University",
+        "type": "Organization"
+      },
+      "email": "khoshne1@msu.edu",
+      "familyName": "Khoshnevis",
+      "id": "https://orcid.org/0009-0008-7806-1491",
+      "givenName": "Arman",
+      "type": "Person"
+    }
+  ],
+  "codeRepository": "https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models",
+  "dateCreated": "2026-03-17",
+  "dateModified": "2026-03-31",
+  "datePublished": "2026-03-17",
+  "description": "This repository provides a computational framework for conducting Bayesian inference and uncertainty quantification on  fractional-order constitutive models. The framework relies on the PyMC package, a probabilistic programming library design for robust construction of inference problems.",
+  "issueTracker": "https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models/issues",
+  "keywords": [
+    "Bayesian Inference",
+    "Uncertainty Quantification",
+    "MCMC Sampling",
+    "Viscoelasticity",
+    "Constitutive Model",
+    "Fractional Calculus",
+    "Polyurea Nanocomposites"
+  ],
+  "license": "https://spdx.org/licenses/Apache-2.0",
+  "programmingLanguage": [
+    "Jupyter Notebook",
+    "Python",
+    "Shell"
+  ],
+  "version": "1.0.0",
+  "type": "SoftwareSourceCode"
+}
