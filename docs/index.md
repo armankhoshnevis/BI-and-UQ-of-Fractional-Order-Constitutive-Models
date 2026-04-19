@@ -85,3 +85,17 @@ If you use this software, please cite it and its corresponding paper, as:
 
 ## Contributions
 This repository is a static archive of the project code. The software is provided "as-is" and is not actively maintained. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
+
+### Funding & Grants
+
+* **ARO Young Investigator Program (YIP):** Supported under Award No. W911NF-19-1-0444.
+
+* **National Science Foundation (NSF):** Supported under Award No. DMS-1923201.
+
+* **Open Scholarship Fellowship:** Supported by NSF Award No. 2429466 through the MSU Data Hub and by the MSU Institute for Cyber-Enabled Research (ICER). This fellowship specifically supported the open-sourcing of this codebase.
+
+### Principal Investigator
+* [Dr. Mohsen Zayernouri](https://fmath.msu.edu/), Michigan State University.
+
+### Computing Resources
+We gratefully acknowledge the Michigan State University Institute for Cyber-Enabled Research (ICER) for providing the High-Performance Computing (HPC) resources used to perform the simulations and analyses in this work.
