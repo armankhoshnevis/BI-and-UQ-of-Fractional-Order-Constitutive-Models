@@ -19,6 +19,11 @@
   "dateModified": "2026-03-31",
   "datePublished": "2026-03-17",
   "description": "This repository provides a computational framework for conducting Bayesian inference and uncertainty quantification on  fractional-order constitutive models. The framework relies on the PyMC package, a probabilistic programming library design for robust construction of inference problems.",
+  "funder": {
+    "name": "ARO Young Investigator Program (YIP)",
+    "type": "Organization"
+  },
+  "funding": "Award No. W911NF-19-1-0444",
   "issueTracker": "https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models/issues",
   "keywords": [
     "Bayesian Inference",
