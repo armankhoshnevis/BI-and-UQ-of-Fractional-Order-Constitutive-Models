@@ -45,7 +45,7 @@ conda activate UQ_Project
 
 ## Quick Run
 ### Running Locally
-Once your environment is activated (via Conda or venv), navigate to the `script` directory and execute the Python files directly from your terminal:
+Once your environment is activated (via Conda or venv), navigate to the `scripts` directory and execute the Python files directly from your terminal:
 ```bash
 cd scripts
 python MCMC_FMG_Inference.py --HS 20
@@ -56,10 +56,36 @@ python MCMC_FMG_Inference_PostProcessing.py --HS 20
 If you are running the inference on a cluster that uses the SLURM workload manager, a sample batch script (`MCMC_FMG.sh` and `MCMC_FMM.sh`) is provided. The script is pre-configured to activate the UQ_Project conda environment.
 ```bash
 cd scripts
-sbatch MCMC_FMG.sb
+sbatch MCMC_FMG.sh
 ```
 
 **Note:** The script's output and any errors will be automatically logged to standard `.out` and `.err` files in the working directory.
+
+## Workflow Automation with Snakemake
+
+To streamline repeated runs across multiple hard-segment (HS) cases and to automate both inference and post-processing, a lightweight workflow has been implemented using **Snakemake**. The workflow is configured through `configs/workflow/workflow_cases.yaml`, where the desired HS values are listed, and executed through the root `Snakefile`.
+
+The workflow currently supports both the **FMG** and **FMM** Bayesian inference pipelines. For each selected HS value, Snakemake first runs the corresponding inference script and then triggers the associated post-processing script for visualization and posterior analysis. Hidden marker files (for example, `.20HSWF_fmg_run_done` and `.20HSWF_fmg_vis_done`) are used internally to track completed steps and avoid unnecessary reruns.
+
+### Dry Run
+A dry run previews the jobs that Snakemake would execute without actually running them:
+```bash
+snakemake -n -p
+```
+Since `fmg_all` is set as the default target, this command previews the FMG workflow. To preview the FMM workflow explicitly, use:
+```bash
+snakemake -n -p fmm_all
+```
+
+### Actual Run
+To run the default FMG workflow:
+```bash
+snakemake --cores 1 -p
+```
+To run the FMM workflow explicitly:
+```bash
+snakemake --cores 1 -p fmm_all
+```
 
 ## Documentation
 Please refer to this [link](https://armankhoshnevis.github.io/BI-and-UQ-of-Fractional-Order-Constitutive-Models/) for more comprehensive documentations.
