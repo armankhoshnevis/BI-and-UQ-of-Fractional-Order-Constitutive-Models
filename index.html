@@ -1093,7 +1093,7 @@ conda activate UQ_Project
 </code></pre>
 <h2 id="quick-run">Quick Run</h2>
 <h3 id="running-locally">Running Locally</h3>
-<p>Once your environment is activated (via Conda or venv), navigate to the <code>script</code> directory and execute the Python files directly from your terminal:</p>
+<p>Once your environment is activated (via Conda or venv), navigate to the <code>scripts</code> directory and execute the Python files directly from your terminal:</p>
 <pre><code class="language-bash">cd scripts
 python MCMC_FMG_Inference.py --HS 20
 python MCMC_FMG_Inference_PostProcessing.py --HS 20
@@ -1101,9 +1101,26 @@ python MCMC_FMG_Inference_PostProcessing.py --HS 20
 <h3 id="running-on-a-slurm-cluster">Running on a SLURM Cluster</h3>
 <p>If you are running the inference on a cluster that uses the SLURM workload manager, a sample batch script (<code>MCMC_FMG.sh</code> and <code>MCMC_FMM.sh</code>) is provided. The script is pre-configured to activate the UQ_Project conda environment.</p>
 <pre><code class="language-bash">cd scripts
-sbatch MCMC_FMG.sb
+sbatch MCMC_FMG.sh
 </code></pre>
 <p><strong>Note:</strong> The script's output and any errors will be automatically logged to standard <code>.out</code> and <code>.err</code> files in the working directory.</p>
+<h2 id="workflow-automation-with-snakemake">Workflow Automation with Snakemake</h2>
+<p>To streamline repeated runs across multiple hard-segment (HS) cases and to automate both inference and post-processing, a lightweight workflow has been implemented using <strong>Snakemake</strong>. The workflow is configured through <code>configs/workflow/workflow_cases.yaml</code>, where the desired HS values are listed, and executed through the root <code>Snakefile</code>.</p>
+<p>The workflow currently supports both the <strong>FMG</strong> and <strong>FMM</strong> Bayesian inference pipelines. For each selected HS value, Snakemake first runs the corresponding inference script and then triggers the associated post-processing script for visualization and posterior analysis. Hidden marker files (for example, <code>.20HSWF_fmg_run_done</code> and <code>.20HSWF_fmg_vis_done</code>) are used internally to track completed steps and avoid unnecessary reruns.</p>
+<h3 id="dry-run">Dry Run</h3>
+<p>A dry run previews the jobs that Snakemake would execute without actually running them:</p>
+<pre><code class="language-bash">snakemake -n -p
+</code></pre>
+<p>Since <code>fmg_all</code> is set as the default target, this command previews the FMG workflow. To preview the FMM workflow explicitly, use:</p>
+<pre><code class="language-bash">snakemake -n -p fmm_all
+</code></pre>
+<h3 id="actual-run">Actual Run</h3>
+<p>To run the default FMG workflow:</p>
+<pre><code class="language-bash">snakemake --cores 1 -p
+</code></pre>
+<p>To run the FMM workflow explicitly:</p>
+<pre><code class="language-bash">snakemake --cores 1 -p fmm_all
+</code></pre>
 <h2 id="documentation">Documentation</h2>
 <p>Please refer to this <a href="https://armankhoshnevis.github.io/BI-and-UQ-of-Fractional-Order-Constitutive-Models/">link</a> for more comprehensive documentations.</p>
 <h2 id="citation-requirements">Citation Requirements</h2>
@@ -1131,6 +1148,24 @@ sbatch MCMC_FMG.sb
 </ul>
 <h2 id="contributions">Contributions</h2>
 <p>This repository is a static archive of the project code. The software is provided "as-is" and is not actively maintained. Please see <a href="CONTRIBUTING.md">CONTRIBUTING.md</a> for more details.</p>
+<h3 id="funding-grants">Funding &amp; Grants</h3>
+<ul>
+<li>
+<p><strong>ARO Young Investigator Program (YIP):</strong> Supported under Award No. W911NF-19-1-0444.</p>
+</li>
+<li>
+<p><strong>National Science Foundation (NSF):</strong> Supported under Award No. DMS-1923201.</p>
+</li>
+<li>
+<p><strong>Open Scholarship Fellowship:</strong> Supported by NSF Award No. 2429466 through the MSU Data Hub and by the MSU Institute for Cyber-Enabled Research (ICER). This fellowship specifically supported the open-sourcing of this codebase.</p>
+</li>
+</ul>
+<h3 id="principal-investigator">Principal Investigator</h3>
+<ul>
+<li><a href="https://fmath.msu.edu/">Dr. Mohsen Zayernouri</a>, Michigan State University.</li>
+</ul>
+<h3 id="computing-resources">Computing Resources</h3>
+<p>We gratefully acknowledge the Michigan State University Institute for Cyber-Enabled Research (ICER) for providing the High-Performance Computing (HPC) resources used to perform the simulations and analyses in this work.</p>
 
 
 
