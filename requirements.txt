@@ -4,3 +4,4 @@ numpy==2.4.3
 pandas==3.0.1
 pymc==5.22.0
 seaborn==0.13.2
+snakemake==9.19.0
