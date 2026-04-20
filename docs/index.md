@@ -65,26 +65,26 @@ sbatch MCMC_FMG.sh
 
 To streamline repeated runs across multiple hard-segment (HS) cases and to automate both inference and post-processing, a lightweight workflow has been implemented using **Snakemake**. The workflow is configured through `configs/workflow/workflow_cases.yaml`, where the desired HS values are listed, and executed through the root `Snakefile`.
 
-The workflow currently supports both the **FMG** and **FMM** Bayesian inference pipelines. For each selected HS value, Snakemake first runs the corresponding inference script and then triggers the associated post-processing script for visualization and posterior analysis. Hidden marker files (for example, `.20HSWF_fmg_run_done` and `.20HSWF_fmg_vis_done`) are used internally to track completed steps and avoid unnecessary reruns.
+The workflow currently supports both the **FMG** and **FMM** Bayesian inference pipelines. For each selected HS value, Snakemake first runs the corresponding inference script and then triggers the associated post-processing script for visualization and posterior analysis. Hidden marker files (for example, `.20HSWF_fmm_run_done` and `.20HSWF_fmm_vis_done`) are used internally to track completed steps and avoid unnecessary reruns.
 
 ### Dry Run
 A dry run previews the jobs that Snakemake would execute without actually running them:
 ```bash
 snakemake -n -p
 ```
-Since `fmg_all` is set as the default target, this command previews the FMG workflow. To preview the FMM workflow explicitly, use:
+Since `fmm_all` is set as the default target, this command previews the FMG workflow. To preview the FMG workflow explicitly, use:
 ```bash
-snakemake -n -p fmm_all
+snakemake -n -p fmg_all
 ```
 
 ### Actual Run
-To run the default FMG workflow:
+To run the default FMM workflow:
 ```bash
 snakemake --cores 1 -p
 ```
-To run the FMM workflow explicitly:
+To run the FMG workflow explicitly:
 ```bash
-snakemake --cores 1 -p fmm_all
+snakemake --cores 1 -p fmg_all
 ```
 
 ## Documentation
