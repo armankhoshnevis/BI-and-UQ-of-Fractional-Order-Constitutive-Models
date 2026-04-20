@@ -94,7 +94,7 @@ Please refer to this [link](https://armankhoshnevis.github.io/BI-and-UQ-of-Fract
 If you use this software, please cite it and its corresponding paper, as:
 
 * **Software citation:**
-  * **Zenodo:** [![DOI](https://zenodo.org/badge/1184676747.svg)](https://doi.org/10.5281/zenodo.19669427)
+  * **Zenodo:** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19669428.svg)](https://doi.org/10.5281/zenodo.19669428)
 
   * **APA style:** Khoshnevis, A. (2026). BI-and-UQ-of-Fractional-Order-Constitutive-Models (Version 1.0.0) [Computer software]. https://doi.org/https://doi.org/10.5281/zenodo.19669428
 
