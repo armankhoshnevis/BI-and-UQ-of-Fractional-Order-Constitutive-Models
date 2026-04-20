@@ -1594,16 +1594,16 @@
 <span class="normal">66</span>
 <span class="normal">67</span>
 <span class="normal">68</span>
-<span class="normal">69</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">SimpleLoggingCallback</span><span class="p">:</span>
+<span class="normal">69</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SimpleLoggingCallback</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""A simple callback to log the progress of PyMC sampling with timing metrics."""</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">total_draws</span><span class="p">,</span> <span class="n">log_interval</span><span class="o">=</span><span class="mi">50_000</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">total_draws</span><span class="p">,</span> <span class="n">log_interval</span><span class="o">=</span><span class="mi">50_000</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">total_draws</span> <span class="o">=</span> <span class="n">total_draws</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">log_interval</span> <span class="o">=</span> <span class="n">log_interval</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">current_draws</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Draw counter per chain </span>
         <span class="bp">self</span><span class="o">.</span><span class="n">start_times</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># start time per chain </span>
         <span class="bp">self</span><span class="o">.</span><span class="n">first_draw</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Flag for first draw</span>
 
-    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">draw</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">draw</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">chain</span> <span class="o">=</span> <span class="n">draw</span><span class="o">.</span><span class="n">chain</span>
 
         <span class="c1"># Initialize per-chain counters and start time</span>
@@ -1940,7 +1940,7 @@
 <span class="normal">148</span>
 <span class="normal">149</span>
 <span class="normal">150</span>
-<span class="normal">151</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">load_data</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">sheet_name</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols_opt</span><span class="p">,</span> <span class="n">cols_GnP</span><span class="p">,</span> <span class="n">omega_limits</span><span class="p">,</span> <span class="n">rcParams_plot</span><span class="p">):</span>
+<span class="normal">151</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">load_data</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">sheet_name</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols_opt</span><span class="p">,</span> <span class="n">cols_GnP</span><span class="p">,</span> <span class="n">omega_limits</span><span class="p">,</span> <span class="n">rcParams_plot</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Load experimental data and optimized model parameters, and plot the results.</span>
 
 <span class="sd">    Args:</span>
@@ -2170,7 +2170,7 @@
 <span class="normal">183</span>
 <span class="normal">184</span>
 <span class="normal">185</span>
-<span class="normal">186</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">modulus_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">model_params</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+<span class="normal">186</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">modulus_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">model_params</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Calculate the modulus function for a given model.</span>
 
 <span class="sd">    Args:</span>
@@ -2318,7 +2318,7 @@
 <span class="normal">209</span>
 <span class="normal">210</span>
 <span class="normal">211</span>
-<span class="normal">212</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">define_bounds</span><span class="p">(</span><span class="n">model_params_opt</span><span class="p">,</span> <span class="n">std_fctr</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
+<span class="normal">212</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">define_bounds</span><span class="p">(</span><span class="n">model_params_opt</span><span class="p">,</span> <span class="n">std_fctr</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Define the bounds for the uniform priors based on the optimized model parameters.</span>
 
 <span class="sd">    Args:</span>
@@ -2578,7 +2578,7 @@
 <span class="normal">314</span>
 <span class="normal">315</span>
 <span class="normal">316</span>
-<span class="normal">317</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">inference_function</span><span class="p">(</span><span class="n">model_params_opt</span><span class="p">,</span> <span class="n">bounds</span><span class="p">,</span> <span class="n">exp_data</span><span class="p">,</span> <span class="n">hyperparams</span><span class="p">):</span>
+<span class="normal">317</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">inference_function</span><span class="p">(</span><span class="n">model_params_opt</span><span class="p">,</span> <span class="n">bounds</span><span class="p">,</span> <span class="n">exp_data</span><span class="p">,</span> <span class="n">hyperparams</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Perform Bayesian inference using PyMC to estimate model parameters.</span>
 
 <span class="sd">    Args:</span>
@@ -2818,7 +2818,7 @@
 <span class="normal">362</span>
 <span class="normal">363</span>
 <span class="normal">364</span>
-<span class="normal">365</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">calculate_diagnostic_metrics</span><span class="p">(</span><span class="n">idata</span><span class="p">,</span> <span class="n">param_list</span><span class="p">):</span>
+<span class="normal">365</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">calculate_diagnostic_metrics</span><span class="p">(</span><span class="n">idata</span><span class="p">,</span> <span class="n">param_list</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Calculate diagnostic metrics such as R-hat, ESS (bulk, 5% and 95% quantiles), and MCSE for the sampled parameters.</span>
 
 <span class="sd">    Args:</span>
@@ -3106,7 +3106,7 @@
 <span class="normal">419</span>
 <span class="normal">420</span>
 <span class="normal">421</span>
-<span class="normal">422</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">error_func</span><span class="p">(</span><span class="n">Ep_exp</span><span class="p">,</span> <span class="n">Epp_exp</span><span class="p">,</span> <span class="n">Ep_opt</span><span class="p">,</span> <span class="n">Epp_opt</span><span class="p">,</span> <span class="n">Ep_MCMC_mean</span><span class="p">,</span> <span class="n">Epp_MCMC_mean</span><span class="p">,</span> <span class="n">Ep_MCMC_map</span><span class="p">,</span> <span class="n">Epp_MCMC_map</span><span class="p">):</span>
+<span class="normal">422</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">error_func</span><span class="p">(</span><span class="n">Ep_exp</span><span class="p">,</span> <span class="n">Epp_exp</span><span class="p">,</span> <span class="n">Ep_opt</span><span class="p">,</span> <span class="n">Epp_opt</span><span class="p">,</span> <span class="n">Ep_MCMC_mean</span><span class="p">,</span> <span class="n">Epp_MCMC_mean</span><span class="p">,</span> <span class="n">Ep_MCMC_map</span><span class="p">,</span> <span class="n">Epp_MCMC_map</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Calculate the error metrics between experimental and model data.</span>
 
 <span class="sd">    Args:</span>
@@ -3297,7 +3297,7 @@
 <span class="normal">473</span>
 <span class="normal">474</span>
 <span class="normal">475</span>
-<span class="normal">476</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">save_inference_results</span><span class="p">(</span><span class="n">to_be_saved</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">HS</span><span class="p">):</span>
+<span class="normal">476</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">save_inference_results</span><span class="p">(</span><span class="n">to_be_saved</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">HS</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Save the inference results, diagnostic metrics, and error measures to specified file paths.</span>
 
 <span class="sd">    Args:</span>
@@ -3536,7 +3536,7 @@
 <span class="normal">533</span>
 <span class="normal">534</span>
 <span class="normal">535</span>
-<span class="normal">536</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">plot_posterior_distributions</span><span class="p">(</span><span class="n">idata</span><span class="p">,</span> <span class="n">idata_mean</span><span class="p">,</span> <span class="n">param_list</span><span class="p">,</span> <span class="n">actual_param_name</span><span class="p">,</span> <span class="n">plt_set</span><span class="p">,</span> <span class="n">rcParams_plot</span><span class="p">):</span>
+<span class="normal">536</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_posterior_distributions</span><span class="p">(</span><span class="n">idata</span><span class="p">,</span> <span class="n">idata_mean</span><span class="p">,</span> <span class="n">param_list</span><span class="p">,</span> <span class="n">actual_param_name</span><span class="p">,</span> <span class="n">plt_set</span><span class="p">,</span> <span class="n">rcParams_plot</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Plot the posterior distributions of model parameters and compare with experimental data.</span>
 
 <span class="sd">    Args:</span>
@@ -3794,7 +3794,7 @@
 <span class="normal">606</span>
 <span class="normal">607</span>
 <span class="normal">608</span>
-<span class="normal">609</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">plot_diagnostic</span><span class="p">(</span><span class="n">idata</span><span class="p">,</span> <span class="n">var_names</span><span class="p">,</span> <span class="n">xticks</span><span class="p">,</span> <span class="n">xticklabels</span><span class="p">,</span> <span class="n">plt_set</span><span class="p">,</span> <span class="n">rcParams_plot</span><span class="p">):</span>
+<span class="normal">609</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_diagnostic</span><span class="p">(</span><span class="n">idata</span><span class="p">,</span> <span class="n">var_names</span><span class="p">,</span> <span class="n">xticks</span><span class="p">,</span> <span class="n">xticklabels</span><span class="p">,</span> <span class="n">plt_set</span><span class="p">,</span> <span class="n">rcParams_plot</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Plot the diagnostic plots (rank and trace plots) for the inferred model parameters.</span>
 
 <span class="sd">    Args:</span>
@@ -4209,7 +4209,7 @@
 <span class="normal">772</span>
 <span class="normal">773</span>
 <span class="normal">774</span>
-<span class="normal">775</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">plot_posterior_predictive</span><span class="p">(</span><span class="n">idata_dict</span><span class="p">,</span> <span class="n">v_obs_Ep</span><span class="p">,</span> <span class="n">v_obs_Epp</span><span class="p">,</span> <span class="n">x_data</span><span class="p">,</span> <span class="n">GnPs</span><span class="p">,</span> <span class="n">GnP_idx</span><span class="p">,</span> <span class="n">xylims</span><span class="p">,</span> <span class="n">plt_set</span><span class="p">,</span> <span class="n">rcParams_plot</span><span class="p">):</span>
+<span class="normal">775</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_posterior_predictive</span><span class="p">(</span><span class="n">idata_dict</span><span class="p">,</span> <span class="n">v_obs_Ep</span><span class="p">,</span> <span class="n">v_obs_Epp</span><span class="p">,</span> <span class="n">x_data</span><span class="p">,</span> <span class="n">GnPs</span><span class="p">,</span> <span class="n">GnP_idx</span><span class="p">,</span> <span class="n">xylims</span><span class="p">,</span> <span class="n">plt_set</span><span class="p">,</span> <span class="n">rcParams_plot</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Plot the storage and loss mooduli predictions with uncertainty intervals (HDI) from the posterior predictive distribution, and compare with the observed data.</span>
 
 <span class="sd">    Args:</span>
@@ -4512,7 +4512,7 @@
 <span class="normal">813</span>
 <span class="normal">814</span>
 <span class="normal">815</span>
-<span class="normal">816</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">plot_posterior_predictive_checks</span><span class="p">(</span><span class="n">idata</span><span class="p">,</span> <span class="n">range1</span><span class="p">,</span> <span class="n">range2</span><span class="p">,</span> <span class="n">plt_set</span><span class="p">,</span> <span class="n">rcParams_plot</span><span class="p">):</span>
+<span class="normal">816</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_posterior_predictive_checks</span><span class="p">(</span><span class="n">idata</span><span class="p">,</span> <span class="n">range1</span><span class="p">,</span> <span class="n">range2</span><span class="p">,</span> <span class="n">plt_set</span><span class="p">,</span> <span class="n">rcParams_plot</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Plot the posterior predictive checks for the model with the inferred model parameters.</span>
 
 <span class="sd">    Args:</span>
@@ -4704,7 +4704,7 @@
 <span class="normal">868</span>
 <span class="normal">869</span>
 <span class="normal">870</span>
-<span class="normal">871</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">plot_pairplot</span><span class="p">(</span><span class="n">idata</span><span class="p">,</span> <span class="n">var_names</span><span class="p">,</span> <span class="n">subset_data_number</span><span class="p">,</span> <span class="n">plt_set</span><span class="p">,</span> <span class="n">rcParams_plot</span><span class="p">):</span>
+<span class="normal">871</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_pairplot</span><span class="p">(</span><span class="n">idata</span><span class="p">,</span> <span class="n">var_names</span><span class="p">,</span> <span class="n">subset_data_number</span><span class="p">,</span> <span class="n">plt_set</span><span class="p">,</span> <span class="n">rcParams_plot</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Plot the pairplot of the sampled parameters to visualize their joint distributions and correlations.</span>
 
 <span class="sd">    Args:</span>
